@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xiwen Wei | About Me</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #faf5ff;
+            color: #4a5568;
+        }
+
+        .section-title {
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title:after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 4px;
+            bottom: -5px;
+            left: 0;
+            background: linear-gradient(90deg, #9f7aea, #667eea);
+            border-radius: 2px;
+        }
+
+        .cat-paw {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .art-brush {
+            animation: float 2.5s ease-in-out infinite 0.5s;
+        }
+
+        .travel-plane {
+            animation: float 3.5s ease-in-out infinite 0.7s;
+        }
+
+        .game-controller {
+            animation: float 3s ease-in-out infinite 0.3s;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+            100% {
+                transform: translateY(0px);
+            }
+        }
+
+        .character-card {
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .character-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .gradient-text {
+            background: linear-gradient(90deg, #9f7aea, #667eea);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+<div class="container mx-auto px-4 py-12 max-w-5xl">
+    <!-- Header -->
+    <header class="text-center mb-16">
+        <h1 class="text-4xl md:text-5xl font-bold mb-4 gradient-text">Xiwen Wei</h1>
+        <p class="text-xl text-purple-600">Master's Student in System Engineering @ Cornell University</p>
+        <div class="mt-6 flex justify-center space-x-4">
+            <span class="px-4 py-1 bg-purple-100 text-purple-800 rounded-full text-sm">Mathematics</span>
+            <span class="px-4 py-1 bg-indigo-100 text-indigo-800 rounded-full text-sm">Data Science</span>
+            <span class="px-4 py-1 bg-pink-100 text-pink-800 rounded-full text-sm">INFP</span>
+        </div>
+    </header>
+
+    <!-- Introduction -->
+    <section class="mb-16 bg-white rounded-xl p-8 shadow-lg">
+        <div class="flex flex-col md:flex-row items-center">
+            <div class="md:w-2/3 md:pr-8">
+                <h2 class="text-2xl font-bold mb-6 section-title">📌 Personal Info</h2>
+                <p class="mb-4 text-lg">Hi! I'm Xiwen Wei, currently a master's student in System Engineering at Cornell
+                    University. My background is in Mathematics and Data Science.</p>
+                <p class="text-lg">But outside of academics, my life is all about my hobbies and the things I love!</p>
+            </div>
+            <div class="mt-8 md:mt-0 md:w-1/3 flex justify-center">
+                <div class="relative">
+                    <div class="w-48 h-48 rounded-full bg-gradient-to-br from-purple-200 to-indigo-300 flex items-center justify-center overflow-hidden">
+                        <!--                            <i class="fas fa-user text-6xl text-white opacity-80"></i>-->
+                        <img src="images/avator.JPG">
+                    </div>
+                    <div class="absolute -bottom-2 -right-2 bg-purple-500 text-white px-3 py-1 rounded-full text-xs font-bold">
+                        ❤️ Living my passions
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cat Lover -->
+    <section class="mb-16 bg-white rounded-xl p-8 shadow-lg">
+        <div class="flex flex-col md:flex-row items-center">
+            <div class="md:w-1/3 mb-8 md:mb-0 flex justify-center">
+                <div class="relative">
+                    <div class="w-48 h-48 rounded-full bg-gradient-to-br from-pink-200 to-purple-300 flex items-center justify-center">
+                        <!--                            <i class="fas fa-paw text-6xl text-pink-600 cat-paw"></i>-->
+
+                        <i class="cat-paw" style="border-radius: 50px;">
+                            <img src="images/cat.GIF" style=" border-radius: 50%;"/>
+                        </i>
+
+
+                    </div>
+                    <div class="absolute -bottom-2 -left-2 bg-pink-500 text-white px-3 py-1 rounded-full text-xs font-bold">
+                        4 adorable cats
+                    </div>
+                </div>
+            </div>
+            <div class="md:w-2/3 md:pl-8">
+                <h2 class="text-2xl font-bold mb-6 section-title">🐱 Cat Lover</h2>
+                <p class="mb-4">I'm a proud cat parent to four adorable cats. They are my daily source of joy, mischief,
+                    and endless cuddles.</p>
+                <p>My life pretty much revolves around their schedules—feeding time, playtime, and, of course, their
+                    royal nap times.</p>
+                <div class="mt-6 grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <div class="bg-pink-50 rounded-lg p-3 text-center">
+                        <i class="fas fa-bowl-food text-pink-500 mb-1"></i>
+                        <p class="text-sm">Feeding Time</p>
+                    </div>
+                    <div class="bg-purple-50 rounded-lg p-3 text-center">
+                        <i class="fas fa-gamepad text-purple-500 mb-1"></i>
+                        <p class="text-sm">Playtime</p>
+                    </div>
+                    <div class="bg-indigo-50 rounded-lg p-3 text-center">
+                        <i class="fas fa-bed text-indigo-500 mb-1"></i>
+                        <p class="text-sm">Nap Times</p>
+                    </div>
+                    <div class="bg-yellow-50 rounded-lg p-3 text-center">
+                        <i class="fas fa-heart text-yellow-500 mb-1"></i>
+                        <p class="text-sm">Endless Love</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Art & Original Characters -->
+    <section class="mb-16 bg-white rounded-xl p-8 shadow-lg">
+        <h2 class="text-2xl font-bold mb-8 section-title">🎨 Art & Original Characters</h2>
+        <div class="flex flex-col md:flex-row items-center">
+            <div class="md:w-2/3 md:pr-8">
+                <p class="mb-6">I love commissioning artwork and have over 150 original characters! Seeing my characters
+                    come to life through different artists' styles is one of my biggest joys.</p>
+                <p class="mb-6">My collection keeps growing, and I'm always on the lookout for new artists to work
+                    with.</p>
+                <div class="bg-purple-50 rounded-lg p-4">
+                    <div class="flex items-center">
+                        <div class="mr-4 text-purple-600">
+                            <i class="fas fa-palette text-3xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-purple-800">150+ Original Characters</h4>
+                            <p class="text-sm text-purple-600">And counting!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-8 md:mt-0 md:w-1/3 flex justify-center">
+                <div class="relative">
+                    <div class="w-48 h-48 rounded-full bg-gradient-to-br from-blue-200 to-purple-300 flex items-center justify-center">
+                        <i class="fas fa-paint-brush text-6xl text-blue-600 art-brush"></i>
+                    </div>
+                    <div class="absolute -bottom-2 -right-2 bg-blue-500 text-white px-3 py-1 rounded-full text-xs font-bold">
+                        Always creating
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="mt-8 grid grid-cols-2 md:grid-cols-3 gap-4">
+            <div class="character-card bg-white rounded-lg p-4 border border-gray-100">
+                <img src="images/Character-1.JPG" style=" border-radius: 10%; height: 90%"/>
+
+                <h4 class="font-bold text-center">Character #1</h4>
+            </div>
+            <div class="character-card bg-white rounded-lg p-4 border border-gray-100">
+                <!--                    <div class="h-32 bg-gradient-to-br from-blue-200 to-indigo-300 rounded-md mb-3 flex items-center justify-center">-->
+                <!--                        <i class="fas fa-user-astronaut text-4xl text-blue-600"></i>-->
+                <!--                    </div>-->
+
+                <img src="images/Character-2.JPG" style=" border-radius: 10%; height: 90%"/>
+
+                <h4 class="font-bold text-center">Character #2</h4>
+            </div>
+            <div class="character-card bg-white rounded-lg p-4 border border-gray-100">
+<!--                <div class="h-32 bg-gradient-to-br from-green-200 to-teal-300 rounded-md mb-3 flex items-center justify-center">-->
+<!--                    <i class="fas fa-fairy text-4xl text-green-600"></i>-->
+<!--                </div>-->
+
+                <img src="images/Character-3.JPG" style=" border-radius: 10%; height: 90%"/>
+
+                <h4 class="font-bold text-center">Character #3</h4>
+            </div>
+        </div>
+    </section>
+
+    <!-- Travel & Leisure -->
+    <section class="mb-16 bg-white rounded-xl p-8 shadow-lg">
+        <div class="flex flex-col md:flex-row items-center">
+            <div class="md:w-1/3 mb-8 md:mb-0 flex justify-center">
+                <div class="relative">
+                    <div class="w-48 h-48 rounded-full bg-gradient-to-br from-teal-200 to-blue-300 flex items-center justify-center">
+                        <!--                            <i class="fas fa-plane text-6xl text-teal-600 travel-plane"></i>-->
+                        <img src="./images/travel.JPG" style=" border-radius: 50%;"/>
+
+                    </div>
+                    <div class="absolute -bottom-2 -left-2 bg-teal-500 text-white px-3 py-1 rounded-full text-xs font-bold">
+                        Many adventures
+                    </div>
+                </div>
+            </div>
+            <div class="md:w-2/3 md:pl-8">
+                <h2 class="text-2xl font-bold mb-6 section-title">✈️ Travel & Leisure</h2>
+                <p class="mb-4">Despite being a homebody (INFP), I've been dragged out on trips by my extroverted
+                    friends.</p>
+                <p class="mb-6">I've traveled to places like Singapore, Canada, France, Italy, Switzerland, and so on. I
+                    have to admit—sometimes, fresh air isn't so bad. Live in the moment, no worries, just happiness.</p>
+                <div class="flex flex-wrap gap-2">
+                    <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm">Singapore</span>
+                    <span class="px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm">Canada</span>
+                    <span class="px-3 py-1 bg-red-100 text-red-800 rounded-full text-sm">France</span>
+                    <span class="px-3 py-1 bg-yellow-100 text-yellow-800 rounded-full text-sm">Italy</span>
+                    <span class="px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-sm">Switzerland</span>
+                    <span class="px-3 py-1 bg-indigo-100 text-indigo-800 rounded-full text-sm">And more!</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Anime, Collectibles & Games -->
+    <section class="mb-16 bg-white rounded-xl p-8 shadow-lg">
+        <h2 class="text-2xl font-bold mb-8 section-title">🌸 Anime, Collectibles & Games</h2>
+        <div class="flex flex-col md:flex-row items-center">
+            <div class="md:w-2/3 md:pr-8">
+                <p class="mb-4">I'm deeply into anime and love collecting figures, merch, and BJD dolls.</p>
+                <p class="mb-4">I also enjoy trading card games like Pokémon, My Little Pony, and Disney Lorcana, though
+                    my luck is horrendous—I survive purely by spending more (pain).</p>
+                <p class="mb-6">As for gaming, I mostly play mobile games but also enjoy Switch, Steam, and PC games,
+                    especially competitive ones. I follow esports closely and always get hyped watching high-level
+                    plays.</p>
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                    <div class="bg-pink-50 rounded-lg p-3 text-center">
+                        <i class="fas fa-dragon text-pink-500 mb-1"></i>
+                        <p class="text-sm">Anime</p>
+                    </div>
+                    <div class="bg-blue-50 rounded-lg p-3 text-center">
+                        <i class="fas fa-chess-queen text-blue-500 mb-1"></i>
+                        <p class="text-sm">BJD Dolls</p>
+                    </div>
+                    <div class="bg-yellow-50 rounded-lg p-3 text-center">
+                        <i class="fas fa-gamepad text-pink-500 mb-1"></i>
+                        <p class="text-sm">TCG</p>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-8 md:mt-0 md:w-1/3 flex justify-center">
+                <div class="relative">
+                    <div class="w-48 h-48 rounded-full bg-gradient-to-br from-yellow-200 to-red-300 flex items-center justify-center">
+                        <!--                            <i class="fas fa-gamepad text-6xl text-yellow-600 game-controller"></i>-->
+
+                        <img src="images/game.GIF" style=" border-radius: 50%;"/>
+                    </div>
+                    <div class="absolute -bottom-2 -right-2 bg-red-500 text-white px-3 py-1 rounded-full text-xs font-bold">
+                        Gamer life
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final Quote -->
+    <section class="text-center py-12">
+        <div class="max-w-2xl mx-auto bg-gradient-to-r from-purple-500 to-indigo-600 rounded-xl p-8 text-white">
+            <i class="fas fa-heart text-3xl mb-4"></i>
+            <p class="text-2xl font-bold mb-2">Every day is filled with things I love,</p>
+            <p class="text-xl">and that's all that matters.</p>
+        </div>
+    </section>
+</div>
+</body>
+</html>
