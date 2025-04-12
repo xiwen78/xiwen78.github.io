@@ -75,10 +75,78 @@
             background-clip: text;
             color: transparent;
         }
+        
+        /* Anime character page specific styles */
+        .anime-character {
+            background: white;
+            border-radius: 1rem;
+            overflow: hidden;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .character-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        
+        .character-gallery img {
+            border-radius: 0.5rem;
+            object-fit: cover;
+            height: 200px;
+            width: 100%;
+            transition: transform 0.3s ease;
+        }
+        
+        .character-gallery img:hover {
+            transform: scale(1.05);
+        }
+        
+        .quote-box {
+            background: linear-gradient(135deg, #a78bfa, #818cf8);
+            color: white;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            font-style: italic;
+            position: relative;
+        }
+        
+        .quote-box:before {
+            content: '"';
+            font-size: 4rem;
+            position: absolute;
+            opacity: 0.2;
+            top: -1rem;
+            left: 0.5rem;
+        }
+        
+        .nav-button {
+            background: linear-gradient(90deg, #9f7aea, #667eea);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 9999px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .nav-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Hide the anime page by default */
+        #anime-characters-page {
+            display: none;
+        }
     </style>
 </head>
 <body class="min-h-screen">
-<div class="container mx-auto px-4 py-12 max-w-5xl">
+<!-- Main About Page -->
+<div id="about-page" class="container mx-auto px-4 py-12 max-w-5xl">
     <!-- Header -->
     <header class="text-center mb-16">
         <h1 class="text-4xl md:text-5xl font-bold mb-4 gradient-text">Xiwen Wei</h1>
@@ -102,8 +170,7 @@
             <div class="mt-8 md:mt-0 md:w-1/3 flex justify-center">
                 <div class="relative">
                     <div class="w-48 h-48 rounded-full bg-gradient-to-br from-purple-200 to-indigo-300 flex items-center justify-center overflow-hidden">
-                        <!--                            <i class="fas fa-user text-6xl text-white opacity-80"></i>-->
-                        <img src="images/avator.JPG">
+                        <img src="images/avator.JPG" alt="Profile" class="w-full h-full object-cover">
                     </div>
                     <div class="absolute -bottom-2 -right-2 bg-purple-500 text-white px-3 py-1 rounded-full text-xs font-bold">
                         ❤️ Living my passions
@@ -119,13 +186,9 @@
             <div class="md:w-1/3 mb-8 md:mb-0 flex justify-center">
                 <div class="relative">
                     <div class="w-48 h-48 rounded-full bg-gradient-to-br from-pink-200 to-purple-300 flex items-center justify-center">
-                        <!--                            <i class="fas fa-paw text-6xl text-pink-600 cat-paw"></i>-->
-
                         <i class="cat-paw" style="border-radius: 50px;">
-                            <img src="images/cat.GIF" style=" border-radius: 50%;"/>
+                            <img src="images/cat.GIF" alt="Cat" style="border-radius: 50%; height: 100%; width: 100%; object-fit: cover;"/>
                         </i>
-
-
                     </div>
                     <div class="absolute -bottom-2 -left-2 bg-pink-500 text-white px-3 py-1 rounded-full text-xs font-bold">
                         4 adorable cats
@@ -180,6 +243,12 @@
                         </div>
                     </div>
                 </div>
+                <!-- Button to navigate to anime characters page -->
+                <div class="mt-6">
+                    <button onclick="showAnimePage()" class="nav-button">
+                        <i class="fas fa-arrow-right"></i> View Featured Characters
+                    </button>
+                </div>
             </div>
             <div class="mt-8 md:mt-0 md:w-1/3 flex justify-center">
                 <div class="relative">
@@ -194,27 +263,16 @@
         </div>
         <div class="mt-8 grid grid-cols-2 md:grid-cols-3 gap-4">
             <div class="character-card bg-white rounded-lg p-4 border border-gray-100">
-                <img src="images/Character-1.JPG" style=" border-radius: 10%; height: 90%"/>
-
-                <h4 class="font-bold text-center">Character #1</h4>
+                <img src="images/Character-1.JPG" alt="Character 1" style="border-radius: 10%; height: 200px; width: 100%; object-fit: cover;"/>
+                <h4 class="font-bold text-center mt-2">Character #1</h4>
             </div>
             <div class="character-card bg-white rounded-lg p-4 border border-gray-100">
-                <!--                    <div class="h-32 bg-gradient-to-br from-blue-200 to-indigo-300 rounded-md mb-3 flex items-center justify-center">-->
-                <!--                        <i class="fas fa-user-astronaut text-4xl text-blue-600"></i>-->
-                <!--                    </div>-->
-
-                <img src="images/Character-2.JPG" style=" border-radius: 10%; height: 90%"/>
-
-                <h4 class="font-bold text-center">Character #2</h4>
+                <img src="images/Character-2.JPG" alt="Character 2" style="border-radius: 10%; height: 200px; width: 100%; object-fit: cover;"/>
+                <h4 class="font-bold text-center mt-2">Character #2</h4>
             </div>
             <div class="character-card bg-white rounded-lg p-4 border border-gray-100">
-<!--                <div class="h-32 bg-gradient-to-br from-green-200 to-teal-300 rounded-md mb-3 flex items-center justify-center">-->
-<!--                    <i class="fas fa-fairy text-4xl text-green-600"></i>-->
-<!--                </div>-->
-
-                <img src="images/Character-3.JPG" style=" border-radius: 10%; height: 90%"/>
-
-                <h4 class="font-bold text-center">Character #3</h4>
+                <img src="images/Character-3.JPG" alt="Character 3" style="border-radius: 10%; height: 200px; width: 100%; object-fit: cover;"/>
+                <h4 class="font-bold text-center mt-2">Character #3</h4>
             </div>
         </div>
     </section>
@@ -225,9 +283,7 @@
             <div class="md:w-1/3 mb-8 md:mb-0 flex justify-center">
                 <div class="relative">
                     <div class="w-48 h-48 rounded-full bg-gradient-to-br from-teal-200 to-blue-300 flex items-center justify-center">
-                        <!--                            <i class="fas fa-plane text-6xl text-teal-600 travel-plane"></i>-->
-                        <img src="./images/travel.JPG" style=" border-radius: 50%;"/>
-
+                        <img src="./images/travel.JPG" alt="Travel" style="border-radius: 50%; height: 100%; width: 100%; object-fit: cover;"/>
                     </div>
                     <div class="absolute -bottom-2 -left-2 bg-teal-500 text-white px-3 py-1 rounded-full text-xs font-bold">
                         Many adventures
@@ -281,9 +337,7 @@
             <div class="mt-8 md:mt-0 md:w-1/3 flex justify-center">
                 <div class="relative">
                     <div class="w-48 h-48 rounded-full bg-gradient-to-br from-yellow-200 to-red-300 flex items-center justify-center">
-                        <!--                            <i class="fas fa-gamepad text-6xl text-yellow-600 game-controller"></i>-->
-
-                        <img src="images/game.GIF" style=" border-radius: 50%;"/>
+                        <img src="images/game.GIF" alt="Games" style="border-radius: 50%; height: 100%; width: 100%; object-fit: cover;"/>
                     </div>
                     <div class="absolute -bottom-2 -right-2 bg-red-500 text-white px-3 py-1 rounded-full text-xs font-bold">
                         Gamer life
@@ -302,5 +356,106 @@
         </div>
     </section>
 </div>
+
+<!-- Anime Characters Page -->
+<div id="anime-characters-page" class="container mx-auto px-4 py-12 max-w-5xl">
+    <!-- Header with back button -->
+    <header class="text-center mb-12 relative">
+        <button onclick="showAboutPage()" class="nav-button absolute left-0 top-0">
+            <i class="fas fa-arrow-left"></i> Back to Main
+        </button>
+        <h1 class="text-4xl md:text-5xl font-bold mb-4 gradient-text">Original Characters</h1>
+        <p class="text-xl text-purple-600">Featured characters from my collection</p>
+    </header>
+
+    <!-- Panther Black Character -->
+    <section class="mb-16 anime-character p-8">
+        <div class="flex flex-col md:flex-row gap-8">
+            <div class="md:w-1/3">
+                <div class="w-full h-64 rounded-xl bg-gradient-to-br from-gray-800 to-blue-900 flex items-center justify-center overflow-hidden">
+                    <img src="images/PantherBlack-main.PNG" alt="Panther Black" class="w-full h-full object-cover">
+                </div>
+                <h2 class="text-3xl font-bold mt-4 text-gray-800">Panther Black</h2>
+                <div class="mt-2 flex flex-wrap gap-2">
+                    <span class="px-3 py-1 bg-gray-100 text-gray-800 rounded-full text-sm">Guardian</span>
+                    <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm">Mysterious</span>
+                    <span class="px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-sm">Shadow</span>
+                </div>
+            </div>
+            <div class="md:w-2/3">
+                <h3 class="text-xl font-semibold mb-4 text-gray-700">Character Story</h3>
+                <p class="mb-4">In the mist-shrouded mountains of an ancient dynasty, Panther Black prowls as an enigmatic guardian. With jet-black hair cascading like ink and piercing sapphire eyes that mirror the night sky, he embodies the harmony of shadow and elegance.</p>
+                <p class="mb-6">A wanderer between realms, he adorns himself with silver talismans and sapphire gems—each piece whispering of forgotten spells. His presence is a silent storm, blending lethal grace.</p>
+                
+                <div class="quote-box mb-6">
+                    <p>"The moon favors the patient hunter."</p>
+                </div>
+                
+                <h3 class="text-xl font-semibold mb-4 text-gray-700">Character Gallery</h3>
+                <div class="character-gallery">
+                    <img src="images/PantherBlack-1.JPG" alt="Panther Black 1">
+                    <img src="images/PantherBlack-4.PNG" alt="Panther Black 3">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rabbit Snow Character -->
+    <section class="mb-16 anime-character p-8">
+        <div class="flex flex-col md:flex-row gap-8">
+            <div class="md:w-1/3">
+                <div class="w-full h-64 rounded-xl bg-gradient-to-br from-gray-100 to-blue-100 flex items-center justify-center overflow-hidden">
+                    <img src="images/RabbitSnow-main.JPG" alt="Rabbit Snow" class="w-full h-full object-cover">
+                </div>
+                <h2 class="text-3xl font-bold mt-4 text-gray-800">Rabbit Snow</h2>
+                <div class="mt-2 flex flex-wrap gap-2">
+                    <span class="px-3 py-1 bg-gray-100 text-gray-800 rounded-full text-sm">Celestial</span>
+                    <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm">Divine</span>
+                    <span class="px-3 py-1 bg-red-100 text-red-800 rounded-full text-sm">Emissary</span>
+                </div>
+            </div>
+            <div class="md:w-2/3">
+                <h3 class="text-xl font-semibold mb-4 text-gray-700">Character Story</h3>
+                <p class="mb-4">Beneath the eternal silver gaze of the Celestial Palace, Rabbit Snow stands as a sacred emissary between heaven and earth—a luminous being woven from pure moonlight and divine will.</p>
+                <p class="mb-6">His immaculate white fur shimmers with an otherworldly glow, each strand radiating the purity of untouched snow atop sacred mountains. His mesmerizing heterochromatic eyes reflect the duality of creation: the left crimson as the first dawn, pulsating with celestial fire; the right pale gray like sacred ash, holding the wisdom of eternity.</p>
+                
+                <div class="quote-box mb-6">
+                    <p>"I bring neither judgment nor mercy, only the unalterable truth of the cosmos."</p>
+                </div>
+                
+                <h3 class="text-xl font-semibold mb-4 text-gray-700">Character Gallery</h3>
+                <div class="character-gallery">
+                    <img src="images/RabbitSnow-1.JPG" alt="Rabbit Snow 1">
+                    <img src="images/RabbitSnow-2.PNG" alt="Rabbit Snow 2">
+                    <img src="images/RabbitSnow-3.PNG" alt="Rabbit Snow 3">
+                    <img src="images/RabbitSnow-4.PNG" alt="Rabbit Snow 4">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Back to main button -->
+    <div class="text-center mt-8">
+        <button onclick="showAboutPage()" class="nav-button">
+            <i class="fas fa-arrow-left"></i> Return to Main Page
+        </button>
+    </div>
+</div>
+
+<script>
+    // Function to show the anime characters page
+    function showAnimePage() {
+        document.getElementById('about-page').style.display = 'none';
+        document.getElementById('anime-characters-page').style.display = 'block';
+        window.scrollTo(0, 0);
+    }
+    
+    // Function to show the about page
+    function showAboutPage() {
+        document.getElementById('anime-characters-page').style.display = 'none';
+        document.getElementById('about-page').style.display = 'block';
+        window.scrollTo(0, 0);
+    }
+</script>
 </body>
 </html>
