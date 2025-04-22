@@ -15,6 +15,33 @@
             color: #4a5568;
         }
 
+        /* Anime character page specific styles */
+        .anime-character {
+            background: white;
+            border-radius: 1rem;
+            overflow: hidden;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .character-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        
+        .character-gallery img {
+            border-radius: 0.5rem;
+            object-fit: cover;
+            height: 200px;
+            width: 100%;
+            transition: transform 0.3s ease;
+        }
+        
+        .character-gallery img:hover {
+            transform: scale(1.05);
+        }
+        
         .section-title {
             position: relative;
             display: inline-block;
@@ -76,51 +103,110 @@
             color: transparent;
         }
         
-        /* Anime character page specific styles */
-        .anime-character {
-            background: white;
-            border-radius: 1rem;
-            overflow: hidden;
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        /* Hide pages by default */
+        #anime-characters-page,
+        #travel-page,
+        #bjd-page,
+        #canada-page {
+            display: none;
         }
-        
-        .character-gallery {
+
+        /* Gallery styles */
+        .gallery-container {
+            position: relative;
+            width: 100%;
+            height: 500px;
+            overflow: hidden;
+            border-radius: 1rem;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+
+        .gallery-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .gallery-slide.active {
+            opacity: 1;
+        }
+
+        .gallery-nav {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 1rem;
+            z-index: 10;
+        }
+
+        .gallery-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .gallery-dot.active {
+            background-color: white;
+            transform: scale(1.3);
+        }
+
+        .gallery-title {
+            position: absolute;
+            bottom: 5rem;
+            left: 2rem;
+            color: white;
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+            z-index: 10;
+        }
+
+        .gallery-counter {
+            position: absolute;
+            bottom: 2rem;
+            right: 2rem;
+            color: white;
+            font-size: 1rem;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+            z-index: 10;
+        }
+
+        .thumbnail-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
             gap: 1rem;
             margin-top: 1.5rem;
         }
-        
-        .character-gallery img {
+
+        .thumbnail {
+            height: 80px;
             border-radius: 0.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
             object-fit: cover;
-            height: 200px;
-            width: 100%;
-            transition: transform 0.3s ease;
         }
-        
-        .character-gallery img:hover {
+
+        .thumbnail:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .thumbnail.active {
+            border: 3px solid #9f7aea;
             transform: scale(1.05);
         }
-        
-        .quote-box {
-            background: linear-gradient(135deg, #a78bfa, #818cf8);
-            color: white;
-            padding: 1rem;
-            border-radius: 0.5rem;
-            font-style: italic;
-            position: relative;
-        }
-        
-        .quote-box:before {
-            content: '"';
-            font-size: 4rem;
-            position: absolute;
-            opacity: 0.2;
-            top: -1rem;
-            left: 0.5rem;
-        }
-        
+
         .nav-button {
             background: linear-gradient(90deg, #9f7aea, #667eea);
             color: white;
@@ -137,10 +223,15 @@
             transform: translateY(-2px);
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
         }
-        
-        /* Hide the anime page by default */
-        #anime-characters-page {
-            display: none;
+
+        /* Animation for gallery transitions */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .fade-in {
+            animation: fadeIn 1s ease-in-out;
         }
     </style>
 </head>
@@ -219,6 +310,13 @@
                         <p class="text-sm">Endless Love</p>
                     </div>
                 </div>
+
+                                <!-- Button to navigate to anime characters page -->
+                                <div class="mt-6">
+                                    <button onclick="showCatPage()" class="nav-button">
+                                        <i class="fas fa-arrow-right"></i> View My Cats
+                                    </button>
+                                </div>
             </div>
         </div>
     </section>
@@ -264,15 +362,12 @@
         <div class="mt-8 grid grid-cols-2 md:grid-cols-3 gap-4">
             <div class="character-card bg-white rounded-lg p-4 border border-gray-100">
                 <img src="images/Character-1.JPG" alt="Character 1" style="border-radius: 10%; height: 200px; width: 100%; object-fit: cover;"/>
-                <h4 class="font-bold text-center mt-2">Character #1</h4>
             </div>
             <div class="character-card bg-white rounded-lg p-4 border border-gray-100">
                 <img src="images/Character-2.JPG" alt="Character 2" style="border-radius: 10%; height: 200px; width: 100%; object-fit: cover;"/>
-                <h4 class="font-bold text-center mt-2">Character #2</h4>
             </div>
             <div class="character-card bg-white rounded-lg p-4 border border-gray-100">
                 <img src="images/Character-3.JPG" alt="Character 3" style="border-radius: 10%; height: 200px; width: 100%; object-fit: cover;"/>
-                <h4 class="font-bold text-center mt-2">Character #3</h4>
             </div>
         </div>
     </section>
@@ -297,12 +392,18 @@
                 <p class="mb-6">I've traveled to places like Singapore, Canada, France, Italy, Switzerland, and so on. I
                     have to admit—sometimes, fresh air isn't so bad. Live in the moment, no worries, just happiness.</p>
                 <div class="flex flex-wrap gap-2">
+                    <button onclick="showCanadaPage()" class="px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm hover:bg-green-200 transition">Canada</button>
                     <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm">Singapore</span>
-                    <span class="px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm">Canada</span>
                     <span class="px-3 py-1 bg-red-100 text-red-800 rounded-full text-sm">France</span>
                     <span class="px-3 py-1 bg-yellow-100 text-yellow-800 rounded-full text-sm">Italy</span>
                     <span class="px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-sm">Switzerland</span>
                     <span class="px-3 py-1 bg-indigo-100 text-indigo-800 rounded-full text-sm">And more!</span>
+                </div>
+                <!-- Button to navigate to travel page -->
+                <div class="mt-6">
+                    <button onclick="showTravelPage()" class="nav-button">
+                        <i class="fas fa-arrow-right"></i> View Travel Adventures
+                    </button>
                 </div>
             </div>
         </div>
@@ -333,6 +434,12 @@
                         <p class="text-sm">TCG</p>
                     </div>
                 </div>
+                <!-- Button to navigate to BJD page -->
+                <div class="mt-6">
+                    <button onclick="showBjdPage()" class="nav-button">
+                        <i class="fas fa-arrow-right"></i> View My BJD Collection
+                    </button>
+                </div>
             </div>
             <div class="mt-8 md:mt-0 md:w-1/3 flex justify-center">
                 <div class="relative">
@@ -356,6 +463,7 @@
         </div>
     </section>
 </div>
+
 
 <!-- Anime Characters Page -->
 <div id="anime-characters-page" class="container mx-auto px-4 py-12 max-w-5xl">
@@ -441,21 +549,385 @@
         </button>
     </div>
 </div>
+<!-- Travel Page -->
+<div id="travel-page" class="container mx-auto px-4 py-12 max-w-5xl">
+    <!-- Header with back button -->
+    <header class="text-center mb-12 relative">
+        <button onclick="showAboutPage()" class="nav-button absolute left-0 top-0">
+            <i class="fas fa-arrow-left"></i> Return to Main Page
+        </button>
+        <h1 class="text-4xl md:text-5xl font-bold mb-4 gradient-text">Travel Adventures</h1>
+        <p class="text-xl text-purple-600">Memories from around the world</p>
+    </header>
+
+    <!-- Puerto Rico -->
+    <section class="mb-16 bg-white rounded-xl p-8 shadow-lg">
+        <div class="flex flex-col md:flex-row gap-8">
+            <div class="md:w-1/3">
+                <div class="w-full h-64 rounded-xl bg-gradient-to-br from-blue-100 to-green-100 flex items-center justify-center overflow-hidden">
+                    <img src="images/PuertoRico-5.jpg" alt="Puerto Rico" class="w-full h-full object-cover">
+                </div>
+                <h2 class="text-3xl font-bold mt-4 text-gray-800">Puerto Rico</h2>
+                <div class="mt-2 flex flex-wrap gap-2">
+                    <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm">Caribbean</span>
+                    <span class="px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm">Beaches</span>
+                    <span class="px-3 py-1 bg-yellow-100 text-yellow-800 rounded-full text-sm">History</span>
+                </div>
+            </div>
+            <div class="md:w-2/3">
+                <h3 class="text-xl font-semibold mb-4 text-gray-700">Island Paradise</h3>
+                <p class="mb-4">Puerto Rico was a tropical dream come true. From the moment I stepped off the plane, I was greeted by warm ocean breezes and the rhythmic sounds of salsa music drifting through the air.</p>
+                <p class="mb-6">The island's vibrant culture, stunning beaches, and rich history made every moment unforgettable. Exploring Old San Juan's colorful streets felt like walking through a living museum, with Spanish colonial architecture at every turn.</p>
+                
+                <div class="bg-blue-50 rounded-lg p-4 mb-6">
+                    <h4 class="font-bold text-blue-800">Highlight: Bioluminescent Bay</h4>
+                    <p>Kayaking through Mosquito Bay at night was magical. The water sparkled with bioluminescent organisms, creating a starry night effect with every paddle stroke.</p>
+                </div>
+                
+                <h3 class="text-xl font-semibold mb-4 text-gray-700">Photo Gallery</h3>
+                <div class="grid grid-cols-4 gap-4">
+                    <img src="images/PuertoRico-5.jpg" alt="" class="rounded-lg">
+                    <img src="images/PuertoRico-2.jpg" alt="" class="rounded-lg">
+                    <img src="images/PuertoRico-3.jpg" alt="" class="rounded-lg">
+                    <img src="images/PuertoRico-4.jpg" alt="" class="rounded-lg">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Canada Button -->
+    <div class="text-center mt-8">
+        <button onclick="showCanadaPage()" class="nav-button">
+            <i class="fas fa-arrow-right"></i> View My Canada Adventures
+        </button>
+    </div>
+
+    <!-- Back to main button -->
+    <div class="text-center mt-8">
+        <button onclick="showAboutPage()" class="nav-button">
+            <i class="fas fa-arrow-left"></i> Return to Main Page
+        </button>
+    </div>
+</div>
+
+<!-- Canada Page -->
+<div id="canada-page" class="container mx-auto px-4 py-12 max-w-5xl">
+    <!-- Header with back button -->
+    <header class="text-center mb-12 relative">
+        <button onclick="showAboutPage()" class="nav-button absolute left-0 top-0">
+            <i class="fas fa-arrow-left"></i> Back to Main
+        </button>
+        <h1 class="text-4xl md:text-5xl font-bold mb-4 gradient-text">Canada Adventures</h1>
+        <p class="text-xl text-purple-600">Exploring the Great White North</p>
+    </header>
+
+    <!-- Canada Gallery -->
+    <section class="mb-16">
+        <div class="gallery-container">
+            <!-- Slides will be added dynamically by JavaScript -->
+        </div>
+        
+        <div class="thumbnail-container">
+            <!-- Thumbnails will be added dynamically by JavaScript -->
+        </div>
+    </section>
+
+    <!-- Back to travel button -->
+    <div class="text-center mt-8">
+        <button onclick="showTravelPage()" class="nav-button">
+            <i class="fas fa-arrow-left"></i> Return to Travel Page
+        </button>
+    </div>
+</div>
+
+<!-- BJD Dolls Page -->
+<div id="bjd-page" class="container mx-auto px-4 py-12 max-w-5xl">
+    <!-- Header with back button -->
+    <header class="text-center mb-12 relative">
+        <button onclick="showAboutPage()" class="nav-button absolute left-0 top-0">
+            <i class="fas fa-arrow-left"></i> Back to Main
+        </button>
+        <h1 class="text-4xl md:text-5xl font-bold mb-4 gradient-text">BJD Doll Collection</h1>
+        <p class="text-xl text-purple-600">My precious ball-jointed dolls</p>
+    </header>
+
+    <!-- BJD Gallery -->
+    <section class="mb-16">
+        <div class="gallery-container">
+            <!-- Slides will be added dynamically by JavaScript -->
+        </div>
+        
+        <div class="thumbnail-container">
+            <!-- Thumbnails will be added dynamically by JavaScript -->
+        </div>
+    </section>
+
+    <!-- Back to main button -->
+    <div class="text-center mt-8">
+        <button onclick="showAboutPage()" class="nav-button">
+            <i class="fas fa-arrow-left"></i> Return to Main Page
+        </button>
+    </div>
+</div>
 
 <script>
     // Function to show the anime characters page
     function showAnimePage() {
         document.getElementById('about-page').style.display = 'none';
         document.getElementById('anime-characters-page').style.display = 'block';
+        document.getElementById('travel-page').style.display = 'none';
+        document.getElementById('bjd-page').style.display = 'none';
+        document.getElementById('canada-page').style.display = 'none';
+        document.getElementById('cat-page').style.display = 'none';
+
+        window.scrollTo(0, 0);
+    }
+
+    function showCatPage() {
+        document.getElementById('about-page').style.display = 'none';
+        document.getElementById('anime-characters-page').style.display = 'none';
+        document.getElementById('travel-page').style.display = 'none';
+        document.getElementById('bjd-page').style.display = 'none';
+        document.getElementById('canada-page').style.display = 'none';
+        document.getElementById('cat-page').style.display = 'block';
         window.scrollTo(0, 0);
     }
     
     // Function to show the about page
     function showAboutPage() {
         document.getElementById('anime-characters-page').style.display = 'none';
+        document.getElementById('travel-page').style.display = 'none';
+        document.getElementById('bjd-page').style.display = 'none';
+        document.getElementById('canada-page').style.display = 'none';
         document.getElementById('about-page').style.display = 'block';
+        document.getElementById('cat-page').style.display = 'none';
+
         window.scrollTo(0, 0);
     }
+    
+    // Function to show the travel page
+    function showTravelPage() {
+        document.getElementById('about-page').style.display = 'none';
+        document.getElementById('anime-characters-page').style.display = 'none';
+        document.getElementById('bjd-page').style.display = 'none';
+        document.getElementById('canada-page').style.display = 'none';
+        document.getElementById('travel-page').style.display = 'block';
+        document.getElementById('cat-page').style.display = 'none';
+
+        window.scrollTo(0, 0);
+    }
+    
+    // Function to show the BJD page
+    function showBjdPage() {
+        document.getElementById('about-page').style.display = 'none';
+        document.getElementById('anime-characters-page').style.display = 'none';
+        document.getElementById('travel-page').style.display = 'none';
+        document.getElementById('canada-page').style.display = 'none';
+        document.getElementById('bjd-page').style.display = 'block';
+        document.getElementById('cat-page').style.display = 'none';
+        document.getElementById('cat-page').style.display = 'none';
+
+        initBjdGallery();
+        window.scrollTo(0, 0);
+    }
+    
+    // Function to show the Canada page
+    function showCanadaPage() {
+        document.getElementById('about-page').style.display = 'none';
+        document.getElementById('anime-characters-page').style.display = 'none';
+        document.getElementById('travel-page').style.display = 'none';
+        document.getElementById('bjd-page').style.display = 'none';
+        document.getElementById('canada-page').style.display = 'block';
+        document.getElementById('cat-page').style.display = 'none';
+
+        initCanadaGallery();
+        window.scrollTo(0, 0);
+    }
+
+    // BJD Gallery Data
+    const bjdImages = [
+        { src: 'https://via.placeholder.com/800x500/fdf2f8/831843?text=BJD+1', title: 'Luna - Moonlight Fairy' },
+        { src: 'https://via.placeholder.com/800x500/dbeafe/1e40af?text=BJD+2', title: 'Kaito - Neon Samurai' },
+        { src: 'https://via.placeholder.com/800x500/d1fae5/047857?text=BJD+3', title: 'Mint - Pastel Princess' },
+        { src: 'https://via.placeholder.com/800x500/f0f9ff/0369a1?text=BJD+4', title: 'Aurora - Winter Queen' },
+        { src: 'https://via.placeholder.com/800x500/f5f3ff/5b21b6?text=BJD+5', title: 'Violet - Gothic Lolita' }
+    ];
+
+    // Canada Gallery Data
+    const canadaImages = [
+        { src: 'https://via.placeholder.com/800x500/e0f2fe/1e40af?text=Banff+NP', title: 'Banff National Park' },
+        { src: 'https://via.placeholder.com/800x500/dcfce7/166534?text=Lake+Louise', title: 'Lake Louise' },
+        { src: 'https://via.placeholder.com/800x500/fee2e2/b91c1c?text=Quebec+City', title: 'Old Quebec City' },
+        { src: 'https://via.placeholder.com/800x500/f0fdf4/15803d?text=Vancouver', title: 'Vancouver Skyline' },
+        { src: 'https://via.placeholder.com/800x500/f5f3ff/5b21b6?text=CN+Tower', title: 'Toronto CN Tower' }
+    ];
+
+    // Initialize BJD Gallery
+    function initBjdGallery() {
+        const galleryContainer = document.querySelector('#bjd-page .gallery-container');
+        const thumbnailContainer = document.querySelector('#bjd-page .thumbnail-container');
+        
+        // Clear existing content
+        galleryContainer.innerHTML = '';
+        thumbnailContainer.innerHTML = '';
+        
+        // Create slides
+        bjdImages.forEach((image, index) => {
+            // Create slide
+            const slide = document.createElement('div');
+            slide.className = `gallery-slide ${index === 0 ? 'active' : ''}`;
+            slide.style.backgroundImage = `url('${image.src}')`;
+            slide.dataset.index = index;
+            
+            // Create title
+            const title = document.createElement('div');
+            title.className = 'gallery-title';
+            title.textContent = image.title;
+            
+            // Create counter
+            const counter = document.createElement('div');
+            counter.className = 'gallery-counter';
+            counter.textContent = `${index + 1}/${bjdImages.length}`;
+            
+            slide.appendChild(title);
+            slide.appendChild(counter);
+            galleryContainer.appendChild(slide);
+            
+            // Create thumbnail
+            const thumbnail = document.createElement('img');
+            thumbnail.src = image.src;
+            thumbnail.className = `thumbnail ${index === 0 ? 'active' : ''}`;
+            thumbnail.dataset.index = index;
+            thumbnail.addEventListener('click', () => goToSlide(index, '#bjd-page'));
+            thumbnailContainer.appendChild(thumbnail);
+        });
+        
+        // Create navigation dots
+        const nav = document.createElement('div');
+        nav.className = 'gallery-nav';
+        bjdImages.forEach((_, index) => {
+            const dot = document.createElement('div');
+            dot.className = `gallery-dot ${index === 0 ? 'active' : ''}`;
+            dot.dataset.index = index;
+            dot.addEventListener('click', () => goToSlide(index, '#bjd-page'));
+            nav.appendChild(dot);
+        });
+        galleryContainer.appendChild(nav);
+        
+        // Start slideshow
+        startSlideshow('#bjd-page');
+    }
+
+    // Initialize Canada Gallery
+    function initCanadaGallery() {
+        const galleryContainer = document.querySelector('#canada-page .gallery-container');
+        const thumbnailContainer = document.querySelector('#canada-page .thumbnail-container');
+        
+        // Clear existing content
+        galleryContainer.innerHTML = '';
+        thumbnailContainer.innerHTML = '';
+        
+        // Create slides
+        canadaImages.forEach((image, index) => {
+            // Create slide
+            const slide = document.createElement('div');
+            slide.className = `gallery-slide ${index === 0 ? 'active' : ''}`;
+            slide.style.backgroundImage = `url('${image.src}')`;
+            slide.dataset.index = index;
+            
+            // Create title
+            const title = document.createElement('div');
+            title.className = 'gallery-title';
+            title.textContent = image.title;
+            
+            // Create counter
+            const counter = document.createElement('div');
+            counter.className = 'gallery-counter';
+            counter.textContent = `${index + 1}/${canadaImages.length}`;
+            
+            slide.appendChild(title);
+            slide.appendChild(counter);
+            galleryContainer.appendChild(slide);
+            
+            // Create thumbnail
+            const thumbnail = document.createElement('img');
+            thumbnail.src = image.src;
+            thumbnail.className = `thumbnail ${index === 0 ? 'active' : ''}`;
+            thumbnail.dataset.index = index;
+            thumbnail.addEventListener('click', () => goToSlide(index, '#canada-page'));
+            thumbnailContainer.appendChild(thumbnail);
+        });
+        
+        // Create navigation dots
+        const nav = document.createElement('div');
+        nav.className = 'gallery-nav';
+        canadaImages.forEach((_, index) => {
+            const dot = document.createElement('div');
+            dot.className = `gallery-dot ${index === 0 ? 'active' : ''}`;
+            dot.dataset.index = index;
+            dot.addEventListener('click', () => goToSlide(index, '#canada-page'));
+            nav.appendChild(dot);
+        });
+        galleryContainer.appendChild(nav);
+        
+        // Start slideshow
+        startSlideshow('#canada-page');
+    }
+
+    // Go to specific slide
+    function goToSlide(index, pageSelector) {
+        const gallery = document.querySelector(`${pageSelector} .gallery-container`);
+        const slides = gallery.querySelectorAll('.gallery-slide');
+        const dots = gallery.querySelectorAll('.gallery-dot');
+        const thumbnails = document.querySelectorAll(`${pageSelector} .thumbnail`);
+        
+        // Update slides
+        slides.forEach(slide => {
+            slide.classList.remove('active');
+        });
+        slides[index].classList.add('active');
+        
+        // Update dots
+        dots.forEach(dot => {
+            dot.classList.remove('active');
+        });
+        dots[index].classList.add('active');
+        
+        // Update thumbnails
+        thumbnails.forEach(thumb => {
+            thumb.classList.remove('active');
+        });
+        thumbnails[index].classList.add('active');
+        
+        // Update counter
+        const counter = slides[index].querySelector('.gallery-counter');
+        if (counter) {
+            const total = pageSelector === '#bjd-page' ? bjdImages.length : canadaImages.length;
+            counter.textContent = `${index + 1}/${total}`;
+        }
+    }
+
+    // Start slideshow
+    function startSlideshow(pageSelector) {
+        const totalSlides = pageSelector === '#bjd-page' ? bjdImages.length : canadaImages.length;
+        let currentIndex = 0;
+        
+        setInterval(() => {
+            currentIndex = (currentIndex + 1) % totalSlides;
+            goToSlide(currentIndex, pageSelector);
+        }, 5000);
+    }
+
+    // Initialize galleries when their pages are shown
+    document.addEventListener('DOMContentLoaded', function() {
+        // Check if we're on the BJD or Canada page initially (unlikely but possible)
+        if (document.getElementById('bjd-page').style.display === 'block') {
+            initBjdGallery();
+        }
+        if (document.getElementById('canada-page').style.display === 'block') {
+            initCanadaGallery();
+        }
+    });
 </script>
 </body>
 </html>
