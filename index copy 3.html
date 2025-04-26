@@ -15,33 +15,6 @@
             color: #4a5568;
         }
 
-        /* Anime character page specific styles */
-        .anime-character {
-            background: white;
-            border-radius: 1rem;
-            overflow: hidden;
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-        }
-        
-        .character-gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1rem;
-            margin-top: 1.5rem;
-        }
-        
-        .character-gallery img {
-            border-radius: 0.5rem;
-            object-fit: cover;
-            height: 200px;
-            width: 100%;
-            transition: transform 0.3s ease;
-        }
-        
-        .character-gallery img:hover {
-            transform: scale(1.05);
-        }
-
         .section-title {
             position: relative;
             display: inline-block;
@@ -107,8 +80,7 @@
         #anime-characters-page,
         #travel-page,
         #bjd-page,
-        #canada-page,
-        #cat-page {
+        #canada-page {
             display: none;
         }
 
@@ -195,16 +167,10 @@
             border-radius: 0.5rem;
             cursor: pointer;
             transition: all 0.3s ease;
-            object-fit: cover; 
-        }
-        .character-gallery img {
-            border-radius: 0.5rem;
             object-fit: cover;
-            height: 200px;
-            width: 100%;
-            transition: transform 0.3s ease;
         }
-        .character-gallery img:hover {
+
+        .thumbnail:hover {
             transform: scale(1.05);
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
         }
@@ -285,7 +251,7 @@
                 <div class="relative">
                     <div class="w-48 h-48 rounded-full bg-gradient-to-br from-pink-200 to-purple-300 flex items-center justify-center">
                         <i class="cat-paw" style="border-radius: 50px;">
-                            <img src="images/cats/cats.JPG" alt="Cat" style="border-radius: 5%; "/>
+                            <img src="images/cat.GIF" alt="Cat" style="border-radius: 50%; height: 100%; width: 100%; object-fit: cover;"/>
                         </i>
                     </div>
                     <div class="absolute -bottom-2 -left-2 bg-pink-500 text-white px-3 py-1 rounded-full text-xs font-bold">
@@ -320,8 +286,8 @@
 
                                 <!-- Button to navigate to anime characters page -->
                                 <div class="mt-6">
-                                    <button onclick="showCatPage()" class="nav-button">
-                                        <i class="fas fa-arrow-right"></i> View My Cats
+                                    <button onclick="showAnimePage()" class="nav-button">
+                                        <i class="fas fa-arrow-right"></i> View Featured Characters
                                     </button>
                                 </div>
             </div>
@@ -385,7 +351,7 @@
             <div class="md:w-1/3 mb-8 md:mb-0 flex justify-center">
                 <div class="relative">
                     <div class="w-48 h-48 rounded-full bg-gradient-to-br from-teal-200 to-blue-300 flex items-center justify-center">
-                        <img src="images/PuertoRico-5.jpg" alt="Travel" style="border-radius: 50%; height: 100%; width: 100%; object-fit: cover;"/>
+                        <img src="./images/travel.JPG" alt="Travel" style="border-radius: 50%; height: 100%; width: 100%; object-fit: cover;"/>
                     </div>
                     <div class="absolute -bottom-2 -left-2 bg-teal-500 text-white px-3 py-1 rounded-full text-xs font-bold">
                         Many adventures
@@ -557,148 +523,6 @@
     </div>
 </div>
 
-<div id="cat-page" class="container mx-auto px-4 py-12 max-w-5xl">
-    <header class="text-center mb-12 relative">
-        <button onclick="showAboutPage()" class="nav-button absolute left-0 top-0">
-            <i class="fas fa-arrow-left"></i> Back to Main
-        </button>
-        <h1 class="text-4xl md:text-5xl font-bold mb-4 gradient-text">My Feline Family</h1>
-        <p class="text-xl text-purple-600">Four Purr-fect Personalities</p>
-    </header>
-
-    <!-- Amy Section -->
-    <section class="mb-16 anime-character p-8">
-        <div class="flex flex-col md:flex-row gap-8">
-            <div class="md:w-1/3">
-                <div class="w-full h-64 rounded-xl bg-gradient-to-br from-gray-200 to-pink-100 flex items-center justify-center overflow-hidden">
-                    <img src="images/cats/Amy/1.jpg" alt="Amy" class="w-full h-full contain">
-                </div>
-                <h2 class="text-3xl font-bold mt-4 text-gray-800">Amy 😾</h2>
-                <div class="mt-2 flex flex-wrap gap-2">
-                    <span class="px-3 py-1 bg-gray-100 text-gray-800 rounded-full text-sm">British Shorthair</span>
-                    <span class="px-3 py-1 bg-pink-100 text-pink-800 rounded-full text-sm">Female</span>
-                </div>
-            </div>
-            <div class="md:w-2/3">
-                <div class="space-y-2 text-gray-600">
-                    <p>🎂 Birthday: May 25, 2019</p>
-                    <p>🍽️ Diet: Fish enthusiast 🐟</p>
-                    <p>🐾 Personality: Independent, not cuddly, rarely meows</p>
-                    <p>⭐ Special: Permanent "judging you" face 😾</p>
-                </div>
-
-    
-                <h3 class="text-xl font-semibold mb-4 text-gray-700"></h3>
-                <div class="character-gallery">
-                    <img src="images/cats/Amy/3.jpg" alt="">
-                    <img src="images/cats/Amy/5.jpg" alt="">
-                </div>
-            </div>
-
-        </div>
-        
-    </section>
-
-    <!-- Ben Section -->
-    <section class="mb-16 anime-character p-8">
-        <div class="flex flex-col md:flex-row gap-8">
-            <div class="md:w-1/3">
-                <div class="w-full h-64 rounded-xl bg-gradient-to-br from-orange-100 to-amber-100 flex items-center justify-center overflow-hidden">
-                    <img src="images/cats/Ben/4.jpg" alt="Ben" class="w-full h-full object-cover">
-                </div>
-                <h2 class="text-3xl font-bold mt-4 text-gray-800">Ben 😼💥</h2>
-                <div class="mt-2 flex flex-wrap gap-2">
-                    <span class="px-3 py-1 bg-orange-100 text-orange-800 rounded-full text-sm">Tabby</span>
-                    <span class="px-3 py-1 bg-amber-100 text-amber-800 rounded-full text-sm">Female</span>
-                </div>
-            </div>
-            <div class="md:w-2/3">
-                <div class="space-y-2 text-gray-600">
-                    <p>🎂 Birthday: September 11, 2020</p>
-                    <p>🍽️ Diet: Cat food & boiled shrimp only—no snacks! 🍤🚫</p>
-                    <p>🐾 Personality: Affectionate (loves cuddles), chatty, but has a tiny habit of biting 😼💬</p>
-                    <p>⭐ Special: Snuggles ✓ Bites ✓ Screams ✓ - the full chaotic cat experience 💥</p>
-                </div>
-
-                <h3 class="text-xl font-semibold mb-4 text-gray-700"></h3>
-                <div class="character-gallery">
-                    <img src="images/cats/Ben/IMG_2396.JPG" alt="">
-                    <img src="images/cats/Ben/3.jpg" alt="">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Siri Section -->
-    <section class="mb-16 anime-character p-8">
-        <div class="flex flex-col md:flex-row gap-8">
-            <div class="md:w-1/3">
-                <div class="w-full h-64 rounded-xl bg-gradient-to-br from-blue-100 to-purple-100 flex items-center justify-center overflow-hidden">
-                    <img src="images/cats/Siri/IMG_1611.jpg" alt="Siri" class="w-full h-full object-cover">
-                </div>
-                <h2 class="text-3xl font-bold mt-4 text-gray-800">Siri 👑🐾</h2>
-                <div class="mt-2 flex flex-wrap gap-2">
-                    <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm">Siamese</span>
-                    <span class="px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-sm">Female</span>
-                </div>
-            </div>
-            <div class="md:w-2/3">
-                <div class="space-y-2 text-gray-600">
-                    <p>🎂 Birthday: April 22, 2022</p>
-                    <p>🍽️ Diet: Seafood connoisseur & snack bandit 🍣🍬</p>
-                    <p>🐾 Personality: Velcro-level attachment (to you ONLY) ❤️
-                        Treats strangers like unauthorized intruders 👑
-                        Holds grudges like a tiny, furry villain keeping score</p>
-                    <p>⭐ Special: "Try clipping her nails and face the wrath of 1,000 bap-bap-baps!" ✂️👊🐾</p>
-
-                    <h3 class="text-xl font-semibold mb-4 text-gray-700"></h3>
-                    <div class="character-gallery">
-                        <img src="images/cats/Siri/IMG_1050.jpg" alt="">
-                        <img src="images/cats/Siri/IMG_5165.jpg" alt="">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-   <!-- Thirty Thousand Section -->
-   <section class="mb-16 anime-character p-8">
-    <div class="flex flex-col md:flex-row gap-8">
-        <div class="md:w-1/3">
-            <div class="w-full h-64 rounded-xl bg-gradient-to-br from-green-100 to-yellow-100 flex items-center justify-center overflow-hidden">
-                <img src="./images/cats/ThirtyThousand/1.JPG" alt="Thirty Thousand" class="w-full h-full object-cover">
-            </div>
-            <h2 class="text-3xl font-bold mt-4 text-gray-800">Thirty Thousand 😼🍟</h2>
-            <div class="mt-2 flex flex-wrap gap-2">
-                <span class="px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm">British Shorthair</span>
-                <span class="px-3 py-1 bg-yellow-100 text-yellow-800 rounded-full text-sm">Male</span>
-            </div>
-        </div>
-        <div class="md:w-2/3">
-            <div class="space-y-2 text-gray-600">
-                <p>🎂 Birthday: September 11, 2020</p>
-                <p>🍽️ Diet: Will eat anything (a true foodie) 🍗🍤🍎</p>
-                <p>🐾 Personality: Super clingy, super sweet, never mad—100% certified good boy</p>
-                <p>⭐ Special: Brings snacks to you when hungry (subtle hints don't exist) 😼🍟</p>
-            </div>
-
-            <h3 class="text-xl font-semibold mb-4 text-gray-700"></h3>
-            <div class="character-gallery">
-                <img src="images/cats/ThirtyThousand/IMG_1788.jpg" alt="">
-                <img src="images/cats/ThirtyThousand/IMG_4346.jpg" alt="">
-            </div>
-        </div>
-    </div>
-</section>
-
-    <!-- Back Button -->
-    <div class="text-center mt-8">
-        <button onclick="showAboutPage()" class="nav-button">
-            <i class="fas fa-arrow-left"></i> Return to Main Page
-        </button>
-    </div>
-</div>
-
 <!-- Travel Page -->
 <div id="travel-page" class="container mx-auto px-4 py-12 max-w-5xl">
     <!-- Header with back button -->
@@ -737,43 +561,9 @@
                 <h3 class="text-xl font-semibold mb-4 text-gray-700">Photo Gallery</h3>
                 <div class="grid grid-cols-4 gap-4">
                     <img src="images/PuertoRico-5.jpg" alt="" class="rounded-lg">
-                    <!-- <img src="images/PuertoRico-2.jpg" alt="" class="rounded-lg"> -->
+                    <img src="images/PuertoRico-2.jpg" alt="" class="rounded-lg">
                     <img src="images/PuertoRico-3.jpg" alt="" class="rounded-lg">
                     <img src="images/PuertoRico-4.jpg" alt="" class="rounded-lg">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Switzerland -->
-    <section class="mb-16 travel-card p-8">
-        <div class="flex flex-col md:flex-row gap-8">
-            <div class="md:w-1/3">
-                <div class="w-full h-64 rounded-xl bg-gradient-to-br from-blue-50 to-gray-100 flex items-center justify-center overflow-hidden">
-                    <img src="images/Switzerland-1.JPG" alt="Switzerland" class="w-full h-full object-cover">
-                </div>
-                <h2 class="text-3xl font-bold mt-4 text-gray-800">Switzerland</h2>
-                <div class="mt-2 flex flex-wrap gap-2">
-                    <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm">Alps</span>
-                    <span class="px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm">Lakes</span>
-                    <span class="px-3 py-1 bg-red-100 text-red-800 rounded-full text-sm">Chocolate</span>
-                </div>
-            </div>
-            <div class="md:w-2/3">
-                <h3 class="text-xl font-semibold mb-4 text-gray-700">Alpine Wonderland</h3>
-                <p class="mb-4">Switzerland was like stepping into a postcard. The snow-capped Alps, crystal-clear lakes, and charming villages exceeded all my expectations. Every view was more breathtaking than the last.</p>
-                <p class="mb-6">Traveling by train through the mountains was an experience in itself, with panoramic windows offering uninterrupted views of the stunning landscapes. The Swiss precision and efficiency were impressive, making travel seamless.</p>
-                
-                <div class="travel-highlight">
-                    <h4>Highlight: Jungfraujoch</h4>
-                    <p>Reaching the "Top of Europe" at Jungfraujoch was unforgettable. Standing at 3,454 meters above sea level, surrounded by glaciers and panoramic mountain views, was truly humbling.</p>
-                </div>
-                
-                <h3 class="text-xl font-semibold mb-4 text-gray-700">Photo Gallery</h3>
-                <div class="grid grid-cols-4 gap-4">
-                    <img src="images/Switzerland-1.JPG" alt="">
-                    <!-- <img src="images/Switzerland-2.JPG" alt=""> -->
-                    <img src="images/Switzerland-3.JPG" alt="" >
                 </div>
             </div>
         </div>
@@ -802,7 +592,7 @@
             <i class="fas fa-arrow-left"></i> Back to Main
         </button>
         <h1 class="text-4xl md:text-5xl font-bold mb-4 gradient-text">Canada Adventures</h1>
-        <!-- <p class="text-xl text-purple-600">Exploring the Great White North</p> -->
+        <p class="text-xl text-purple-600">Exploring the Great White North</p>
     </header>
 
     <!-- Canada Gallery -->
@@ -862,18 +652,6 @@
         document.getElementById('travel-page').style.display = 'none';
         document.getElementById('bjd-page').style.display = 'none';
         document.getElementById('canada-page').style.display = 'none';
-        document.getElementById('cat-page').style.display = 'none';
-
-        window.scrollTo(0, 0);
-    }
-
-    function showCatPage() {
-        document.getElementById('about-page').style.display = 'none';
-        document.getElementById('anime-characters-page').style.display = 'none';
-        document.getElementById('travel-page').style.display = 'none';
-        document.getElementById('bjd-page').style.display = 'none';
-        document.getElementById('canada-page').style.display = 'none';
-        document.getElementById('cat-page').style.display = 'block';
         window.scrollTo(0, 0);
     }
     
@@ -884,8 +662,6 @@
         document.getElementById('bjd-page').style.display = 'none';
         document.getElementById('canada-page').style.display = 'none';
         document.getElementById('about-page').style.display = 'block';
-        document.getElementById('cat-page').style.display = 'none';
-
         window.scrollTo(0, 0);
     }
     
@@ -896,8 +672,6 @@
         document.getElementById('bjd-page').style.display = 'none';
         document.getElementById('canada-page').style.display = 'none';
         document.getElementById('travel-page').style.display = 'block';
-        document.getElementById('cat-page').style.display = 'none';
-
         window.scrollTo(0, 0);
     }
     
@@ -908,9 +682,6 @@
         document.getElementById('travel-page').style.display = 'none';
         document.getElementById('canada-page').style.display = 'none';
         document.getElementById('bjd-page').style.display = 'block';
-        document.getElementById('cat-page').style.display = 'none';
-        // document.getElementById('cat-page').style.display = 'none';
-
         initBjdGallery();
         window.scrollTo(0, 0);
     }
@@ -922,28 +693,26 @@
         document.getElementById('travel-page').style.display = 'none';
         document.getElementById('bjd-page').style.display = 'none';
         document.getElementById('canada-page').style.display = 'block';
-        document.getElementById('cat-page').style.display = 'none';
-
         initCanadaGallery();
         window.scrollTo(0, 0);
     }
 
     // BJD Gallery Data
     const bjdImages = [
-        // { src: './images/bjd/IMG_2802.jpg', title: '' },
-        { src: './images/bjd/IMG_2806.jpg', title: '' },
-        { src: './images/bjd/IMG_2807.jpg', title: '' },
-        { src: './images/bjd/IMG_2814.jpg', title: '' },
-        { src: './images/bjd/IMG_2826.jpg', title: '' }
+        { src: 'https://via.placeholder.com/800x500/fdf2f8/831843?text=BJD+1', title: 'Luna - Moonlight Fairy' },
+        { src: 'https://via.placeholder.com/800x500/dbeafe/1e40af?text=BJD+2', title: 'Kaito - Neon Samurai' },
+        { src: 'https://via.placeholder.com/800x500/d1fae5/047857?text=BJD+3', title: 'Mint - Pastel Princess' },
+        { src: 'https://via.placeholder.com/800x500/f0f9ff/0369a1?text=BJD+4', title: 'Aurora - Winter Queen' },
+        { src: 'https://via.placeholder.com/800x500/f5f3ff/5b21b6?text=BJD+5', title: 'Violet - Gothic Lolita' }
     ];
 
     // Canada Gallery Data
     const canadaImages = [
-        { src: './images/canada/IMG_0175.JPG', title: '' },
-        { src: './images/canada/IMG_1391.jpg', title: '' },
-        { src: './images/canada/IMG_3531.PNG', title: '' },
-        { src: './images/canada/IMG_3532.PNG', title: '' },
-        { src: './images/canada/IMG_6460.PNG', title: '' }
+        { src: 'https://via.placeholder.com/800x500/e0f2fe/1e40af?text=Banff+NP', title: 'Banff National Park' },
+        { src: 'https://via.placeholder.com/800x500/dcfce7/166534?text=Lake+Louise', title: 'Lake Louise' },
+        { src: 'https://via.placeholder.com/800x500/fee2e2/b91c1c?text=Quebec+City', title: 'Old Quebec City' },
+        { src: 'https://via.placeholder.com/800x500/f0fdf4/15803d?text=Vancouver', title: 'Vancouver Skyline' },
+        { src: 'https://via.placeholder.com/800x500/f5f3ff/5b21b6?text=CN+Tower', title: 'Toronto CN Tower' }
     ];
 
     // Initialize BJD Gallery
@@ -962,9 +731,7 @@
             slide.className = `gallery-slide ${index === 0 ? 'active' : ''}`;
             slide.style.backgroundImage = `url('${image.src}')`;
             slide.dataset.index = index;
-            slide.style.backgroundSize = 'contain';  
-            slide.style.backgroundPosition = 'center';  
-            slide.style.backgroundRepeat = 'no-repeat';
+            
             // Create title
             const title = document.createElement('div');
             title.className = 'gallery-title';
@@ -1020,9 +787,7 @@
             slide.className = `gallery-slide ${index === 0 ? 'active' : ''}`;
             slide.style.backgroundImage = `url('${image.src}')`;
             slide.dataset.index = index;
-            slide.style.backgroundSize = 'contain';  
-            slide.style.backgroundPosition = 'center';  
-            slide.style.backgroundRepeat = 'no-repeat';
+            
             // Create title
             const title = document.createElement('div');
             title.className = 'gallery-title';

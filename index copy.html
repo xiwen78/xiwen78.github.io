@@ -15,33 +15,6 @@
             color: #4a5568;
         }
 
-        /* Anime character page specific styles */
-        .anime-character {
-            background: white;
-            border-radius: 1rem;
-            overflow: hidden;
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-        }
-        
-        .character-gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1rem;
-            margin-top: 1.5rem;
-        }
-        
-        .character-gallery img {
-            border-radius: 0.5rem;
-            object-fit: cover;
-            height: 200px;
-            width: 100%;
-            transition: transform 0.3s ease;
-        }
-        
-        .character-gallery img:hover {
-            transform: scale(1.05);
-        }
-
         .section-title {
             position: relative;
             display: inline-block;
@@ -103,100 +76,21 @@
             color: transparent;
         }
         
-        /* Hide pages by default */
-        #anime-characters-page,
-        #travel-page,
-        #bjd-page,
-        #canada-page,
-        #cat-page {
-            display: none;
-        }
-
-        /* Gallery styles */
-        .gallery-container {
-            position: relative;
-            width: 100%;
-            height: 500px;
-            overflow: hidden;
+        /* Anime character page specific styles */
+        .anime-character {
+            background: white;
             border-radius: 1rem;
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
         }
-
-        .gallery-slide {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            opacity: 0;
-            transition: opacity 1s ease-in-out;
-            background-size: cover;
-            background-position: center;
-        }
-
-        .gallery-slide.active {
-            opacity: 1;
-        }
-
-        .gallery-nav {
-            position: absolute;
-            bottom: 2rem;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            gap: 1rem;
-            z-index: 10;
-        }
-
-        .gallery-dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background-color: rgba(255, 255, 255, 0.5);
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .gallery-dot.active {
-            background-color: white;
-            transform: scale(1.3);
-        }
-
-        .gallery-title {
-            position: absolute;
-            bottom: 5rem;
-            left: 2rem;
-            color: white;
-            font-size: 2.5rem;
-            font-weight: 700;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
-            z-index: 10;
-        }
-
-        .gallery-counter {
-            position: absolute;
-            bottom: 2rem;
-            right: 2rem;
-            color: white;
-            font-size: 1rem;
-            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
-            z-index: 10;
-        }
-
-        .thumbnail-container {
+        
+        .character-gallery {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 1rem;
             margin-top: 1.5rem;
         }
-
-        .thumbnail {
-            height: 80px;
-            border-radius: 0.5rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            object-fit: cover; 
-        }
+        
         .character-gallery img {
             border-radius: 0.5rem;
             object-fit: cover;
@@ -204,16 +98,29 @@
             width: 100%;
             transition: transform 0.3s ease;
         }
+        
         .character-gallery img:hover {
             transform: scale(1.05);
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
         }
-
-        .thumbnail.active {
-            border: 3px solid #9f7aea;
-            transform: scale(1.05);
+        
+        .quote-box {
+            background: linear-gradient(135deg, #a78bfa, #818cf8);
+            color: white;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            font-style: italic;
+            position: relative;
         }
-
+        
+        .quote-box:before {
+            content: '"';
+            font-size: 4rem;
+            position: absolute;
+            opacity: 0.2;
+            top: -1rem;
+            left: 0.5rem;
+        }
+        
         .nav-button {
             background: linear-gradient(90deg, #9f7aea, #667eea);
             color: white;
@@ -230,15 +137,102 @@
             transform: translateY(-2px);
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
         }
-
-        /* Animation for gallery transitions */
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+        
+        /* Hide the anime page by default */
+        #anime-characters-page {
+            display: none;
         }
-
-        .fade-in {
-            animation: fadeIn 1s ease-in-out;
+        
+        /* Hide the travel page by default */
+        #travel-page {
+            display: none;
+        }
+        
+        /* Hide the BJD page by default */
+        #bjd-page {
+            display: none;
+        }
+        
+        /* Travel page specific styles */
+        .travel-card {
+            background: white;
+            border-radius: 1rem;
+            overflow: hidden;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+        }
+        
+        .travel-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        
+        .travel-gallery img {
+            border-radius: 0.5rem;
+            object-fit: cover;
+            height: 200px;
+            width: 100%;
+            transition: transform 0.3s ease;
+        }
+        
+        .travel-gallery img:hover {
+            transform: scale(1.05);
+        }
+        
+        .travel-highlight {
+            background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
+            padding: 1rem;
+            border-radius: 0.5rem;
+            margin: 1rem 0;
+        }
+        
+        .travel-highlight h4 {
+            font-weight: 600;
+            color: #0369a1;
+            margin-bottom: 0.5rem;
+        }
+        
+        /* BJD page specific styles */
+        .bjd-card {
+            background: white;
+            border-radius: 1rem;
+            overflow: hidden;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+        }
+        
+        .bjd-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        
+        .bjd-gallery img {
+            border-radius: 0.5rem;
+            object-fit: cover;
+            height: 200px;
+            width: 100%;
+            transition: transform 0.3s ease;
+        }
+        
+        .bjd-gallery img:hover {
+            transform: scale(1.05);
+        }
+        
+        .bjd-highlight {
+            background: linear-gradient(135deg, #f5f3ff, #ede9fe);
+            padding: 1rem;
+            border-radius: 0.5rem;
+            margin: 1rem 0;
+        }
+        
+        .bjd-highlight h4 {
+            font-weight: 600;
+            color: #5b21b6;
+            margin-bottom: 0.5rem;
         }
     </style>
 </head>
@@ -285,7 +279,7 @@
                 <div class="relative">
                     <div class="w-48 h-48 rounded-full bg-gradient-to-br from-pink-200 to-purple-300 flex items-center justify-center">
                         <i class="cat-paw" style="border-radius: 50px;">
-                            <img src="images/cats/cats.JPG" alt="Cat" style="border-radius: 5%; "/>
+                            <img src="images/cat.GIF" alt="Cat" style="border-radius: 50%; height: 100%; width: 100%; object-fit: cover;"/>
                         </i>
                     </div>
                     <div class="absolute -bottom-2 -left-2 bg-pink-500 text-white px-3 py-1 rounded-full text-xs font-bold">
@@ -317,13 +311,6 @@
                         <p class="text-sm">Endless Love</p>
                     </div>
                 </div>
-
-                                <!-- Button to navigate to anime characters page -->
-                                <div class="mt-6">
-                                    <button onclick="showCatPage()" class="nav-button">
-                                        <i class="fas fa-arrow-right"></i> View My Cats
-                                    </button>
-                                </div>
             </div>
         </div>
     </section>
@@ -369,12 +356,15 @@
         <div class="mt-8 grid grid-cols-2 md:grid-cols-3 gap-4">
             <div class="character-card bg-white rounded-lg p-4 border border-gray-100">
                 <img src="images/Character-1.JPG" alt="Character 1" style="border-radius: 10%; height: 200px; width: 100%; object-fit: cover;"/>
+                <!-- <h4 class="font-bold text-center mt-2">Character #1</h4> -->
             </div>
             <div class="character-card bg-white rounded-lg p-4 border border-gray-100">
                 <img src="images/Character-2.JPG" alt="Character 2" style="border-radius: 10%; height: 200px; width: 100%; object-fit: cover;"/>
+                <!-- <h4 class="font-bold text-center mt-2">Character #2</h4> -->
             </div>
             <div class="character-card bg-white rounded-lg p-4 border border-gray-100">
                 <img src="images/Character-3.JPG" alt="Character 3" style="border-radius: 10%; height: 200px; width: 100%; object-fit: cover;"/>
+                <!-- <h4 class="font-bold text-center mt-2">Character #3</h4> -->
             </div>
         </div>
     </section>
@@ -385,7 +375,7 @@
             <div class="md:w-1/3 mb-8 md:mb-0 flex justify-center">
                 <div class="relative">
                     <div class="w-48 h-48 rounded-full bg-gradient-to-br from-teal-200 to-blue-300 flex items-center justify-center">
-                        <img src="images/PuertoRico-5.jpg" alt="Travel" style="border-radius: 50%; height: 100%; width: 100%; object-fit: cover;"/>
+                        <img src="./images/travel.JPG" alt="Travel" style="border-radius: 50%; height: 100%; width: 100%; object-fit: cover;"/>
                     </div>
                     <div class="absolute -bottom-2 -left-2 bg-teal-500 text-white px-3 py-1 rounded-full text-xs font-bold">
                         Many adventures
@@ -399,8 +389,8 @@
                 <p class="mb-6">I've traveled to places like Singapore, Canada, France, Italy, Switzerland, and so on. I
                     have to admit—sometimes, fresh air isn't so bad. Live in the moment, no worries, just happiness.</p>
                 <div class="flex flex-wrap gap-2">
-                    <button onclick="showCanadaPage()" class="px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm hover:bg-green-200 transition">Canada</button>
                     <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm">Singapore</span>
+                    <span class="px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm">Canada</span>
                     <span class="px-3 py-1 bg-red-100 text-red-800 rounded-full text-sm">France</span>
                     <span class="px-3 py-1 bg-yellow-100 text-yellow-800 rounded-full text-sm">Italy</span>
                     <span class="px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-sm">Switzerland</span>
@@ -471,7 +461,6 @@
     </section>
 </div>
 
-
 <!-- Anime Characters Page -->
 <div id="anime-characters-page" class="container mx-auto px-4 py-12 max-w-5xl">
     <!-- Header with back button -->
@@ -488,7 +477,7 @@
         <div class="flex flex-col md:flex-row gap-8">
             <div class="md:w-1/3">
                 <div class="w-full h-64 rounded-xl bg-gradient-to-br from-gray-800 to-blue-900 flex items-center justify-center overflow-hidden">
-                    <img src="images/PantherBlack-main.PNG" alt="Panther Black" class="w-full h-full object-cover">
+                    <img src="https://via.placeholder.com/400x600/1a202c/ffffff?text=Panther+Black" alt="Panther Black" class="w-full h-full object-cover">
                 </div>
                 <h2 class="text-3xl font-bold mt-4 text-gray-800">Panther Black</h2>
                 <div class="mt-2 flex flex-wrap gap-2">
@@ -508,8 +497,9 @@
                 
                 <h3 class="text-xl font-semibold mb-4 text-gray-700">Character Gallery</h3>
                 <div class="character-gallery">
-                    <img src="images/PantherBlack-1.JPG" alt="Panther Black 1">
-                    <img src="images/PantherBlack-4.PNG" alt="Panther Black 3">
+                    <img src="https://via.placeholder.com/300x400/2d3748/ffffff?text=Panther+1" alt="Panther Black 1">
+                    <img src="https://via.placeholder.com/300x400/4a5568/ffffff?text=Panther+2" alt="Panther Black 2">
+                    <img src="https://via.placeholder.com/300x400/718096/ffffff?text=Panther+3" alt="Panther Black 3">
                 </div>
             </div>
         </div>
@@ -520,7 +510,7 @@
         <div class="flex flex-col md:flex-row gap-8">
             <div class="md:w-1/3">
                 <div class="w-full h-64 rounded-xl bg-gradient-to-br from-gray-100 to-blue-100 flex items-center justify-center overflow-hidden">
-                    <img src="images/RabbitSnow-main.JPG" alt="Rabbit Snow" class="w-full h-full object-cover">
+                    <img src="https://via.placeholder.com/400x600/f7fafc/1a202c?text=Rabbit+Snow" alt="Rabbit Snow" class="w-full h-full object-cover">
                 </div>
                 <h2 class="text-3xl font-bold mt-4 text-gray-800">Rabbit Snow</h2>
                 <div class="mt-2 flex flex-wrap gap-2">
@@ -540,10 +530,9 @@
                 
                 <h3 class="text-xl font-semibold mb-4 text-gray-700">Character Gallery</h3>
                 <div class="character-gallery">
-                    <img src="images/RabbitSnow-1.JPG" alt="Rabbit Snow 1">
-                    <img src="images/RabbitSnow-2.PNG" alt="Rabbit Snow 2">
-                    <img src="images/RabbitSnow-3.PNG" alt="Rabbit Snow 3">
-                    <img src="images/RabbitSnow-4.PNG" alt="Rabbit Snow 4">
+                    <img src="https://via.placeholder.com/300x400/e2e8f0/1a202c?text=Rabbit+1" alt="Rabbit Snow 1">
+                    <img src="https://via.placeholder.com/300x400/edf2f7/1a202c?text=Rabbit+2" alt="Rabbit Snow 2">
+                    <img src="https://via.placeholder.com/300x400/f7fafc/1a202c?text=Rabbit+3" alt="Rabbit Snow 3">
                 </div>
             </div>
         </div>
@@ -557,161 +546,19 @@
     </div>
 </div>
 
-<div id="cat-page" class="container mx-auto px-4 py-12 max-w-5xl">
-    <header class="text-center mb-12 relative">
-        <button onclick="showAboutPage()" class="nav-button absolute left-0 top-0">
-            <i class="fas fa-arrow-left"></i> Back to Main
-        </button>
-        <h1 class="text-4xl md:text-5xl font-bold mb-4 gradient-text">My Feline Family</h1>
-        <p class="text-xl text-purple-600">Four Purr-fect Personalities</p>
-    </header>
-
-    <!-- Amy Section -->
-    <section class="mb-16 anime-character p-8">
-        <div class="flex flex-col md:flex-row gap-8">
-            <div class="md:w-1/3">
-                <div class="w-full h-64 rounded-xl bg-gradient-to-br from-gray-200 to-pink-100 flex items-center justify-center overflow-hidden">
-                    <img src="images/cats/Amy/1.jpg" alt="Amy" class="w-full h-full contain">
-                </div>
-                <h2 class="text-3xl font-bold mt-4 text-gray-800">Amy 😾</h2>
-                <div class="mt-2 flex flex-wrap gap-2">
-                    <span class="px-3 py-1 bg-gray-100 text-gray-800 rounded-full text-sm">British Shorthair</span>
-                    <span class="px-3 py-1 bg-pink-100 text-pink-800 rounded-full text-sm">Female</span>
-                </div>
-            </div>
-            <div class="md:w-2/3">
-                <div class="space-y-2 text-gray-600">
-                    <p>🎂 Birthday: May 25, 2019</p>
-                    <p>🍽️ Diet: Fish enthusiast 🐟</p>
-                    <p>🐾 Personality: Independent, not cuddly, rarely meows</p>
-                    <p>⭐ Special: Permanent "judging you" face 😾</p>
-                </div>
-
-    
-                <h3 class="text-xl font-semibold mb-4 text-gray-700"></h3>
-                <div class="character-gallery">
-                    <img src="images/cats/Amy/3.jpg" alt="">
-                    <img src="images/cats/Amy/5.jpg" alt="">
-                </div>
-            </div>
-
-        </div>
-        
-    </section>
-
-    <!-- Ben Section -->
-    <section class="mb-16 anime-character p-8">
-        <div class="flex flex-col md:flex-row gap-8">
-            <div class="md:w-1/3">
-                <div class="w-full h-64 rounded-xl bg-gradient-to-br from-orange-100 to-amber-100 flex items-center justify-center overflow-hidden">
-                    <img src="images/cats/Ben/4.jpg" alt="Ben" class="w-full h-full object-cover">
-                </div>
-                <h2 class="text-3xl font-bold mt-4 text-gray-800">Ben 😼💥</h2>
-                <div class="mt-2 flex flex-wrap gap-2">
-                    <span class="px-3 py-1 bg-orange-100 text-orange-800 rounded-full text-sm">Tabby</span>
-                    <span class="px-3 py-1 bg-amber-100 text-amber-800 rounded-full text-sm">Female</span>
-                </div>
-            </div>
-            <div class="md:w-2/3">
-                <div class="space-y-2 text-gray-600">
-                    <p>🎂 Birthday: September 11, 2020</p>
-                    <p>🍽️ Diet: Cat food & boiled shrimp only—no snacks! 🍤🚫</p>
-                    <p>🐾 Personality: Affectionate (loves cuddles), chatty, but has a tiny habit of biting 😼💬</p>
-                    <p>⭐ Special: Snuggles ✓ Bites ✓ Screams ✓ - the full chaotic cat experience 💥</p>
-                </div>
-
-                <h3 class="text-xl font-semibold mb-4 text-gray-700"></h3>
-                <div class="character-gallery">
-                    <img src="images/cats/Ben/IMG_2396.JPG" alt="">
-                    <img src="images/cats/Ben/3.jpg" alt="">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Siri Section -->
-    <section class="mb-16 anime-character p-8">
-        <div class="flex flex-col md:flex-row gap-8">
-            <div class="md:w-1/3">
-                <div class="w-full h-64 rounded-xl bg-gradient-to-br from-blue-100 to-purple-100 flex items-center justify-center overflow-hidden">
-                    <img src="images/cats/Siri/IMG_1611.jpg" alt="Siri" class="w-full h-full object-cover">
-                </div>
-                <h2 class="text-3xl font-bold mt-4 text-gray-800">Siri 👑🐾</h2>
-                <div class="mt-2 flex flex-wrap gap-2">
-                    <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm">Siamese</span>
-                    <span class="px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-sm">Female</span>
-                </div>
-            </div>
-            <div class="md:w-2/3">
-                <div class="space-y-2 text-gray-600">
-                    <p>🎂 Birthday: April 22, 2022</p>
-                    <p>🍽️ Diet: Seafood connoisseur & snack bandit 🍣🍬</p>
-                    <p>🐾 Personality: Velcro-level attachment (to you ONLY) ❤️
-                        Treats strangers like unauthorized intruders 👑
-                        Holds grudges like a tiny, furry villain keeping score</p>
-                    <p>⭐ Special: "Try clipping her nails and face the wrath of 1,000 bap-bap-baps!" ✂️👊🐾</p>
-
-                    <h3 class="text-xl font-semibold mb-4 text-gray-700"></h3>
-                    <div class="character-gallery">
-                        <img src="images/cats/Siri/IMG_1050.jpg" alt="">
-                        <img src="images/cats/Siri/IMG_5165.jpg" alt="">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-   <!-- Thirty Thousand Section -->
-   <section class="mb-16 anime-character p-8">
-    <div class="flex flex-col md:flex-row gap-8">
-        <div class="md:w-1/3">
-            <div class="w-full h-64 rounded-xl bg-gradient-to-br from-green-100 to-yellow-100 flex items-center justify-center overflow-hidden">
-                <img src="./images/cats/ThirtyThousand/1.JPG" alt="Thirty Thousand" class="w-full h-full object-cover">
-            </div>
-            <h2 class="text-3xl font-bold mt-4 text-gray-800">Thirty Thousand 😼🍟</h2>
-            <div class="mt-2 flex flex-wrap gap-2">
-                <span class="px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm">British Shorthair</span>
-                <span class="px-3 py-1 bg-yellow-100 text-yellow-800 rounded-full text-sm">Male</span>
-            </div>
-        </div>
-        <div class="md:w-2/3">
-            <div class="space-y-2 text-gray-600">
-                <p>🎂 Birthday: September 11, 2020</p>
-                <p>🍽️ Diet: Will eat anything (a true foodie) 🍗🍤🍎</p>
-                <p>🐾 Personality: Super clingy, super sweet, never mad—100% certified good boy</p>
-                <p>⭐ Special: Brings snacks to you when hungry (subtle hints don't exist) 😼🍟</p>
-            </div>
-
-            <h3 class="text-xl font-semibold mb-4 text-gray-700"></h3>
-            <div class="character-gallery">
-                <img src="images/cats/ThirtyThousand/IMG_1788.jpg" alt="">
-                <img src="images/cats/ThirtyThousand/IMG_4346.jpg" alt="">
-            </div>
-        </div>
-    </div>
-</section>
-
-    <!-- Back Button -->
-    <div class="text-center mt-8">
-        <button onclick="showAboutPage()" class="nav-button">
-            <i class="fas fa-arrow-left"></i> Return to Main Page
-        </button>
-    </div>
-</div>
-
 <!-- Travel Page -->
 <div id="travel-page" class="container mx-auto px-4 py-12 max-w-5xl">
     <!-- Header with back button -->
     <header class="text-center mb-12 relative">
         <button onclick="showAboutPage()" class="nav-button absolute left-0 top-0">
-            <i class="fas fa-arrow-left"></i> Return to Main Page
+            <i class="fas fa-arrow-left"></i> Back to Main
         </button>
         <h1 class="text-4xl md:text-5xl font-bold mb-4 gradient-text">Travel Adventures</h1>
         <p class="text-xl text-purple-600">Memories from around the world</p>
     </header>
 
     <!-- Puerto Rico -->
-    <section class="mb-16 bg-white rounded-xl p-8 shadow-lg">
+    <section class="mb-16 travel-card p-8">
         <div class="flex flex-col md:flex-row gap-8">
             <div class="md:w-1/3">
                 <div class="w-full h-64 rounded-xl bg-gradient-to-br from-blue-100 to-green-100 flex items-center justify-center overflow-hidden">
@@ -729,17 +576,17 @@
                 <p class="mb-4">Puerto Rico was a tropical dream come true. From the moment I stepped off the plane, I was greeted by warm ocean breezes and the rhythmic sounds of salsa music drifting through the air.</p>
                 <p class="mb-6">The island's vibrant culture, stunning beaches, and rich history made every moment unforgettable. Exploring Old San Juan's colorful streets felt like walking through a living museum, with Spanish colonial architecture at every turn.</p>
                 
-                <div class="bg-blue-50 rounded-lg p-4 mb-6">
-                    <h4 class="font-bold text-blue-800">Highlight: Bioluminescent Bay</h4>
+                <div class="travel-highlight">
+                    <h4>Highlight: Bioluminescent Bay</h4>
                     <p>Kayaking through Mosquito Bay at night was magical. The water sparkled with bioluminescent organisms, creating a starry night effect with every paddle stroke.</p>
                 </div>
                 
                 <h3 class="text-xl font-semibold mb-4 text-gray-700">Photo Gallery</h3>
-                <div class="grid grid-cols-4 gap-4">
-                    <img src="images/PuertoRico-5.jpg" alt="" class="rounded-lg">
-                    <!-- <img src="images/PuertoRico-2.jpg" alt="" class="rounded-lg"> -->
-                    <img src="images/PuertoRico-3.jpg" alt="" class="rounded-lg">
-                    <img src="images/PuertoRico-4.jpg" alt="" class="rounded-lg">
+                <div class="travel-gallery">
+                    <img src="images/PuertoRico-5.jpg" alt="">
+                    <img src="images/PuertoRico-2.jpg" alt="">
+                    <img src="images/PuertoRico-3.jpg" alt="">
+                    <img src="images/PuertoRico-4.jpg" alt="">
                 </div>
             </div>
         </div>
@@ -770,56 +617,19 @@
                 </div>
                 
                 <h3 class="text-xl font-semibold mb-4 text-gray-700">Photo Gallery</h3>
-                <div class="grid grid-cols-4 gap-4">
-                    <img src="images/Switzerland-1.JPG" alt="">
-                    <!-- <img src="images/Switzerland-2.JPG" alt=""> -->
-                    <img src="images/Switzerland-3.JPG" alt="" >
+                <div class="travel-gallery">
+                    <img src="images/Switzerland-2.JPG" alt="">
+                    <img src="images/Switzerland-3.JPG" alt="" height="80%">
+
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Canada Button -->
-    <div class="text-center mt-8">
-        <button onclick="showCanadaPage()" class="nav-button">
-            <i class="fas fa-arrow-right"></i> View My Canada Adventures
-        </button>
-    </div>
-
     <!-- Back to main button -->
     <div class="text-center mt-8">
         <button onclick="showAboutPage()" class="nav-button">
             <i class="fas fa-arrow-left"></i> Return to Main Page
-        </button>
-    </div>
-</div>
-
-<!-- Canada Page -->
-<div id="canada-page" class="container mx-auto px-4 py-12 max-w-5xl">
-    <!-- Header with back button -->
-    <header class="text-center mb-12 relative">
-        <button onclick="showAboutPage()" class="nav-button absolute left-0 top-0">
-            <i class="fas fa-arrow-left"></i> Back to Main
-        </button>
-        <h1 class="text-4xl md:text-5xl font-bold mb-4 gradient-text">Canada Adventures</h1>
-        <!-- <p class="text-xl text-purple-600">Exploring the Great White North</p> -->
-    </header>
-
-    <!-- Canada Gallery -->
-    <section class="mb-16">
-        <div class="gallery-container">
-            <!-- Slides will be added dynamically by JavaScript -->
-        </div>
-        
-        <div class="thumbnail-container">
-            <!-- Thumbnails will be added dynamically by JavaScript -->
-        </div>
-    </section>
-
-    <!-- Back to travel button -->
-    <div class="text-center mt-8">
-        <button onclick="showTravelPage()" class="nav-button">
-            <i class="fas fa-arrow-left"></i> Return to Travel Page
         </button>
     </div>
 </div>
@@ -835,14 +645,126 @@
         <p class="text-xl text-purple-600">My precious ball-jointed dolls</p>
     </header>
 
-    <!-- BJD Gallery -->
-    <section class="mb-16">
-        <div class="gallery-container">
-            <!-- Slides will be added dynamically by JavaScript -->
+    <!-- Introduction -->
+    <section class="mb-8">
+        <div class="bg-white rounded-xl p-8 shadow-lg">
+            <h2 class="text-2xl font-bold mb-6 section-title">🌸 About My Collection</h2>
+            <p class="mb-4">Ball-jointed dolls (BJDs) are my passion and creative outlet. Each doll in my collection is unique, with their own personality, style, and story.</p>
+            <p class="mb-6">I enjoy customizing them with different faceups, wigs, and outfits, creating miniature works of art that reflect my aesthetic and imagination.</p>
+            
+            <div class="bg-purple-50 rounded-lg p-4">
+                <div class="flex items-center">
+                    <div class="mr-4 text-purple-600">
+                        <i class="fas fa-chess-queen text-3xl"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-purple-800">15+ BJDs in Collection</h4>
+                        <p class="text-sm text-purple-600">From various manufacturers</p>
+                    </div>
+                </div>
+            </div>
         </div>
-        
-        <div class="thumbnail-container">
-            <!-- Thumbnails will be added dynamically by JavaScript -->
+    </section>
+
+    <!-- Doll 1 -->
+    <section class="mb-16 bjd-card p-8">
+        <div class="flex flex-col md:flex-row gap-8">
+            <div class="md:w-1/3">
+                <div class="w-full h-64 rounded-xl bg-gradient-to-br from-pink-100 to-purple-100 flex items-center justify-center overflow-hidden">
+                    <img src="https://via.placeholder.com/400x600/fdf2f8/831843?text=BJD+1" alt="BJD Doll 1" class="w-full h-full object-cover">
+                </div>
+                <h2 class="text-3xl font-bold mt-4 text-gray-800">Luna</h2>
+                <div class="mt-2 flex flex-wrap gap-2">
+                    <span class="px-3 py-1 bg-pink-100 text-pink-800 rounded-full text-sm">Fairy</span>
+                    <span class="px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-sm">Elegant</span>
+                    <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm">Dreamlike</span>
+                </div>
+            </div>
+            <div class="md:w-2/3">
+                <h3 class="text-xl font-semibold mb-4 text-gray-700">Moonlight Fairy</h3>
+                <p class="mb-4">Luna is my first BJD and holds a special place in my heart. She's a 60cm fairy-themed doll with delicate features and an ethereal presence.</p>
+                <p class="mb-6">Her porcelain-like skin and luminous eyes capture the essence of moonlight, making her perfect for fantasy-themed photoshoots.</p>
+                
+                <div class="bjd-highlight">
+                    <h4>Special Features</h4>
+                    <p>Custom glass eyes that change color in different lighting, hand-rooted eyelashes, and a hand-painted faceup that gives her a dreamy, otherworldly expression.</p>
+                </div>
+                
+                <h3 class="text-xl font-semibold mb-4 text-gray-700">Gallery</h3>
+                <div class="bjd-gallery">
+                    <img src="https://via.placeholder.com/300x400/fdf2f8/831843?text=Luna+1" alt="Luna 1">
+                    <img src="https://via.placeholder.com/300x400/f5f3ff/5b21b6?text=Luna+2" alt="Luna 2">
+                    <img src="https://via.placeholder.com/300x400/f0f9ff/0369a1?text=Luna+3" alt="Luna 3">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Doll 2 -->
+    <section class="mb-16 bjd-card p-8">
+        <div class="flex flex-col md:flex-row gap-8">
+            <div class="md:w-1/3">
+                <div class="w-full h-64 rounded-xl bg-gradient-to-br from-blue-100 to-indigo-100 flex items-center justify-center overflow-hidden">
+                    <img src="https://via.placeholder.com/400x600/dbeafe/1e40af?text=BJD+2" alt="BJD Doll 2" class="w-full h-full object-cover">
+                </div>
+                <h2 class="text-3xl font-bold mt-4 text-gray-800">Kaito</h2>
+                <div class="mt-2 flex flex-wrap gap-2">
+                    <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm">Cyberpunk</span>
+                    <span class="px-3 py-1 bg-gray-100 text-gray-800 rounded-full text-sm">Edgy</span>
+                    <span class="px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-sm">Futuristic</span>
+                </div>
+            </div>
+            <div class="md:w-2/3">
+                <h3 class="text-xl font-semibold mb-4 text-gray-700">Neon Samurai</h3>
+                <p class="mb-4">Kaito represents my love for cyberpunk aesthetics. This 45cm male doll has sharp features and an intense gaze that perfectly captures his rebellious spirit.</p>
+                <p class="mb-6">His wardrobe consists of futuristic streetwear with neon accents, inspired by Tokyo's underground fashion scene.</p>
+                
+                <div class="bjd-highlight">
+                    <h4>Special Features</h4>
+                    <p>Custom LED lighting in his eyes (battery-powered), magnetic piercings, and a unique faceup that combines traditional Japanese elements with futuristic cyberpunk style.</p>
+                </div>
+                
+                <h3 class="text-xl font-semibold mb-4 text-gray-700">Gallery</h3>
+                <div class="bjd-gallery">
+                    <img src="https://via.placeholder.com/300x400/dbeafe/1e40af?text=Kaito+1" alt="Kaito 1">
+                    <img src="https://via.placeholder.com/300x400/e0e7ff/4338ca?text=Kaito+2" alt="Kaito 2">
+                    <img src="https://via.placeholder.com/300x400/ecfdf5/047857?text=Kaito+3" alt="Kaito 3">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Doll 3 -->
+    <section class="mb-16 bjd-card p-8">
+        <div class="flex flex-col md:flex-row gap-8">
+            <div class="md:w-1/3">
+                <div class="w-full h-64 rounded-xl bg-gradient-to-br from-green-100 to-teal-100 flex items-center justify-center overflow-hidden">
+                    <img src="https://via.placeholder.com/400x600/d1fae5/047857?text=BJD+3" alt="BJD Doll 3" class="w-full h-full object-cover">
+                </div>
+                <h2 class="text-3xl font-bold mt-4 text-gray-800">Mint</h2>
+                <div class="mt-2 flex flex-wrap gap-2">
+                    <span class="px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm">Sweet</span>
+                    <span class="px-3 py-1 bg-pink-100 text-pink-800 rounded-full text-sm">Lolita</span>
+                    <span class="px-3 py-1 bg-yellow-100 text-yellow-800 rounded-full text-sm">Pastel</span>
+                </div>
+            </div>
+            <div class="md:w-2/3">
+                <h3 class="text-xl font-semibold mb-4 text-gray-700">Pastel Princess</h3>
+                <p class="mb-4">Mint is my adorable 40cm sweet lolita doll. With her round face and big, innocent eyes, she embodies the kawaii aesthetic I love.</p>
+                <p class="mb-6">Her wardrobe is full of pastel dresses, cute accessories, and everything frilly and sweet. Dressing her up is like playing with a living paper doll!</p>
+                
+                <div class="bjd-highlight">
+                    <h4>Special Features</h4>
+                    <p>Custom blushing that gives her a naturally flushed look, hand-made miniature accessories, and a collection of over 20 handmade outfits in various pastel color schemes.</p>
+                </div>
+                
+                <h3 class="text-xl font-semibold mb-4 text-gray-700">Gallery</h3>
+                <div class="bjd-gallery">
+                    <img src="https://via.placeholder.com/300x400/d1fae5/047857?text=Mint+1" alt="Mint 1">
+                    <img src="https://via.placeholder.com/300x400/f0fdf4/15803d?text=Mint+2" alt="Mint 2">
+                    <img src="https://via.placeholder.com/300x400/f5f3ff/5b21b6?text=Mint+3" alt="Mint 3">
+                </div>
+            </div>
         </div>
     </section>
 
@@ -861,19 +783,6 @@
         document.getElementById('anime-characters-page').style.display = 'block';
         document.getElementById('travel-page').style.display = 'none';
         document.getElementById('bjd-page').style.display = 'none';
-        document.getElementById('canada-page').style.display = 'none';
-        document.getElementById('cat-page').style.display = 'none';
-
-        window.scrollTo(0, 0);
-    }
-
-    function showCatPage() {
-        document.getElementById('about-page').style.display = 'none';
-        document.getElementById('anime-characters-page').style.display = 'none';
-        document.getElementById('travel-page').style.display = 'none';
-        document.getElementById('bjd-page').style.display = 'none';
-        document.getElementById('canada-page').style.display = 'none';
-        document.getElementById('cat-page').style.display = 'block';
         window.scrollTo(0, 0);
     }
     
@@ -882,10 +791,7 @@
         document.getElementById('anime-characters-page').style.display = 'none';
         document.getElementById('travel-page').style.display = 'none';
         document.getElementById('bjd-page').style.display = 'none';
-        document.getElementById('canada-page').style.display = 'none';
         document.getElementById('about-page').style.display = 'block';
-        document.getElementById('cat-page').style.display = 'none';
-
         window.scrollTo(0, 0);
     }
     
@@ -894,10 +800,7 @@
         document.getElementById('about-page').style.display = 'none';
         document.getElementById('anime-characters-page').style.display = 'none';
         document.getElementById('bjd-page').style.display = 'none';
-        document.getElementById('canada-page').style.display = 'none';
         document.getElementById('travel-page').style.display = 'block';
-        document.getElementById('cat-page').style.display = 'none';
-
         window.scrollTo(0, 0);
     }
     
@@ -906,216 +809,9 @@
         document.getElementById('about-page').style.display = 'none';
         document.getElementById('anime-characters-page').style.display = 'none';
         document.getElementById('travel-page').style.display = 'none';
-        document.getElementById('canada-page').style.display = 'none';
         document.getElementById('bjd-page').style.display = 'block';
-        document.getElementById('cat-page').style.display = 'none';
-        // document.getElementById('cat-page').style.display = 'none';
-
-        initBjdGallery();
         window.scrollTo(0, 0);
     }
-    
-    // Function to show the Canada page
-    function showCanadaPage() {
-        document.getElementById('about-page').style.display = 'none';
-        document.getElementById('anime-characters-page').style.display = 'none';
-        document.getElementById('travel-page').style.display = 'none';
-        document.getElementById('bjd-page').style.display = 'none';
-        document.getElementById('canada-page').style.display = 'block';
-        document.getElementById('cat-page').style.display = 'none';
-
-        initCanadaGallery();
-        window.scrollTo(0, 0);
-    }
-
-    // BJD Gallery Data
-    const bjdImages = [
-        // { src: './images/bjd/IMG_2802.jpg', title: '' },
-        { src: './images/bjd/IMG_2806.jpg', title: '' },
-        { src: './images/bjd/IMG_2807.jpg', title: '' },
-        { src: './images/bjd/IMG_2814.jpg', title: '' },
-        { src: './images/bjd/IMG_2826.jpg', title: '' }
-    ];
-
-    // Canada Gallery Data
-    const canadaImages = [
-        { src: './images/canada/IMG_0175.JPG', title: '' },
-        { src: './images/canada/IMG_1391.jpg', title: '' },
-        { src: './images/canada/IMG_3531.PNG', title: '' },
-        { src: './images/canada/IMG_3532.PNG', title: '' },
-        { src: './images/canada/IMG_6460.PNG', title: '' }
-    ];
-
-    // Initialize BJD Gallery
-    function initBjdGallery() {
-        const galleryContainer = document.querySelector('#bjd-page .gallery-container');
-        const thumbnailContainer = document.querySelector('#bjd-page .thumbnail-container');
-        
-        // Clear existing content
-        galleryContainer.innerHTML = '';
-        thumbnailContainer.innerHTML = '';
-        
-        // Create slides
-        bjdImages.forEach((image, index) => {
-            // Create slide
-            const slide = document.createElement('div');
-            slide.className = `gallery-slide ${index === 0 ? 'active' : ''}`;
-            slide.style.backgroundImage = `url('${image.src}')`;
-            slide.dataset.index = index;
-            slide.style.backgroundSize = 'contain';  
-            slide.style.backgroundPosition = 'center';  
-            slide.style.backgroundRepeat = 'no-repeat';
-            // Create title
-            const title = document.createElement('div');
-            title.className = 'gallery-title';
-            title.textContent = image.title;
-            
-            // Create counter
-            const counter = document.createElement('div');
-            counter.className = 'gallery-counter';
-            counter.textContent = `${index + 1}/${bjdImages.length}`;
-            
-            slide.appendChild(title);
-            slide.appendChild(counter);
-            galleryContainer.appendChild(slide);
-            
-            // Create thumbnail
-            const thumbnail = document.createElement('img');
-            thumbnail.src = image.src;
-            thumbnail.className = `thumbnail ${index === 0 ? 'active' : ''}`;
-            thumbnail.dataset.index = index;
-            thumbnail.addEventListener('click', () => goToSlide(index, '#bjd-page'));
-            thumbnailContainer.appendChild(thumbnail);
-        });
-        
-        // Create navigation dots
-        const nav = document.createElement('div');
-        nav.className = 'gallery-nav';
-        bjdImages.forEach((_, index) => {
-            const dot = document.createElement('div');
-            dot.className = `gallery-dot ${index === 0 ? 'active' : ''}`;
-            dot.dataset.index = index;
-            dot.addEventListener('click', () => goToSlide(index, '#bjd-page'));
-            nav.appendChild(dot);
-        });
-        galleryContainer.appendChild(nav);
-        
-        // Start slideshow
-        startSlideshow('#bjd-page');
-    }
-
-    // Initialize Canada Gallery
-    function initCanadaGallery() {
-        const galleryContainer = document.querySelector('#canada-page .gallery-container');
-        const thumbnailContainer = document.querySelector('#canada-page .thumbnail-container');
-        
-        // Clear existing content
-        galleryContainer.innerHTML = '';
-        thumbnailContainer.innerHTML = '';
-        
-        // Create slides
-        canadaImages.forEach((image, index) => {
-            // Create slide
-            const slide = document.createElement('div');
-            slide.className = `gallery-slide ${index === 0 ? 'active' : ''}`;
-            slide.style.backgroundImage = `url('${image.src}')`;
-            slide.dataset.index = index;
-            slide.style.backgroundSize = 'contain';  
-            slide.style.backgroundPosition = 'center';  
-            slide.style.backgroundRepeat = 'no-repeat';
-            // Create title
-            const title = document.createElement('div');
-            title.className = 'gallery-title';
-            title.textContent = image.title;
-            
-            // Create counter
-            const counter = document.createElement('div');
-            counter.className = 'gallery-counter';
-            counter.textContent = `${index + 1}/${canadaImages.length}`;
-            
-            slide.appendChild(title);
-            slide.appendChild(counter);
-            galleryContainer.appendChild(slide);
-            
-            // Create thumbnail
-            const thumbnail = document.createElement('img');
-            thumbnail.src = image.src;
-            thumbnail.className = `thumbnail ${index === 0 ? 'active' : ''}`;
-            thumbnail.dataset.index = index;
-            thumbnail.addEventListener('click', () => goToSlide(index, '#canada-page'));
-            thumbnailContainer.appendChild(thumbnail);
-        });
-        
-        // Create navigation dots
-        const nav = document.createElement('div');
-        nav.className = 'gallery-nav';
-        canadaImages.forEach((_, index) => {
-            const dot = document.createElement('div');
-            dot.className = `gallery-dot ${index === 0 ? 'active' : ''}`;
-            dot.dataset.index = index;
-            dot.addEventListener('click', () => goToSlide(index, '#canada-page'));
-            nav.appendChild(dot);
-        });
-        galleryContainer.appendChild(nav);
-        
-        // Start slideshow
-        startSlideshow('#canada-page');
-    }
-
-    // Go to specific slide
-    function goToSlide(index, pageSelector) {
-        const gallery = document.querySelector(`${pageSelector} .gallery-container`);
-        const slides = gallery.querySelectorAll('.gallery-slide');
-        const dots = gallery.querySelectorAll('.gallery-dot');
-        const thumbnails = document.querySelectorAll(`${pageSelector} .thumbnail`);
-        
-        // Update slides
-        slides.forEach(slide => {
-            slide.classList.remove('active');
-        });
-        slides[index].classList.add('active');
-        
-        // Update dots
-        dots.forEach(dot => {
-            dot.classList.remove('active');
-        });
-        dots[index].classList.add('active');
-        
-        // Update thumbnails
-        thumbnails.forEach(thumb => {
-            thumb.classList.remove('active');
-        });
-        thumbnails[index].classList.add('active');
-        
-        // Update counter
-        const counter = slides[index].querySelector('.gallery-counter');
-        if (counter) {
-            const total = pageSelector === '#bjd-page' ? bjdImages.length : canadaImages.length;
-            counter.textContent = `${index + 1}/${total}`;
-        }
-    }
-
-    // Start slideshow
-    function startSlideshow(pageSelector) {
-        const totalSlides = pageSelector === '#bjd-page' ? bjdImages.length : canadaImages.length;
-        let currentIndex = 0;
-        
-        setInterval(() => {
-            currentIndex = (currentIndex + 1) % totalSlides;
-            goToSlide(currentIndex, pageSelector);
-        }, 5000);
-    }
-
-    // Initialize galleries when their pages are shown
-    document.addEventListener('DOMContentLoaded', function() {
-        // Check if we're on the BJD or Canada page initially (unlikely but possible)
-        if (document.getElementById('bjd-page').style.display === 'block') {
-            initBjdGallery();
-        }
-        if (document.getElementById('canada-page').style.display === 'block') {
-            initCanadaGallery();
-        }
-    });
 </script>
 </body>
 </html>
