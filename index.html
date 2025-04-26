@@ -240,6 +240,21 @@
         .fade-in {
             animation: fadeIn 1s ease-in-out;
         }
+
+
+        .character-gallery img:only-child {
+            max-width: 50%;
+            /* margin: 0 auto; */
+            transition: none;
+            transform: none;
+        }
+
+        @media (min-width: 768px) {
+            .character-gallery img:only-child {
+                max-width: 35%;
+            }
+        }
+
     </style>
 </head>
 <body class="min-h-screen">
@@ -621,7 +636,7 @@
                     <p>⭐ Special: Snuggles ✓ Bites ✓ Screams ✓ - the full chaotic cat experience 💥</p>
                 </div>
 
-                <h3 class="text-xl font-semibold mb-4 text-gray-700"></h3>
+                <h3 class="text-xl font-semibold mb-2 text-gray-700"></h3>
                 <div class="character-gallery">
                     <!-- <img src="images/cats/Ben/IMG_2396.JPG" alt=""> -->
                     <img src="images/cats/Ben/3.JPG" alt="">
